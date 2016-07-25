@@ -99,4 +99,8 @@ class CategoriesController extends Controller
 
     return redirect('categories');
   }
+  public  function checkGit()
+  {
+    
+  }
 }
