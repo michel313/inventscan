@@ -58,7 +58,7 @@
         <option disabled selected>Select supplier</option>
         @if (count($selectCats['suppliersList']))
             @foreach($selectCats['suppliersList'] as $supplier)
-                <option value="{{$supplier['id']}}">{{$supplier['title']}}</option>
+                <option @if($supplier['id'] == $product->supplier_id ) {{ 'selected' }} @endif  value="{{$supplier['id']}}">{{$supplier['title']}}</option>
             @endforeach
         @endif
     </select>
@@ -73,7 +73,8 @@
         <option disabled selected>Select Category</option>
         @if (count($selectCats['categoryList']))
             @foreach($selectCats['categoryList'] as $category)
-                <option value="{{$category['id']}}">{{$category['title']}}</option>
+
+                <option @if($category['id'] == $product->category_id ) {{ 'selected' }} @endif  value="{{$category['id']}}">{{$category['title']}}</option>
             @endforeach
         @endif
     </select>
@@ -88,8 +89,8 @@
     <select class="form-control" name="subcategory_id" id="sel_subCat">
         <option disabled selected>Select Subcategory</option>
         @if (count($selectCats['subCategoryList']))
-            @foreach($selectCats['subCategoryList'] as $Subcategory)
-                <option @if($Subcategory['id'] == $product->subcategory_id ) {{ 'selected' }} @endif value="{{$Subcategory['id']}}">{{$Subcategory['title']}}</option>
+            @foreach($selectCats['subCategoryList'] as $subcategory)
+                <option @if($subcategory['id'] == $product->subcategory_id ) {{ 'selected' }} @endif value="{{$subcategory['id']}}">{{$subcategory['title']}}</option>
             @endforeach
         @endif
     </select>

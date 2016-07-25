@@ -38,7 +38,11 @@ class ProductsController extends Controller
      **/
     public function edit(Product $product)
     {
-      return view('products.edit', compact('product'));
+        $selectCats['suppliersList']   = Supplier::all();
+        $selectCats['categoryList']    = Category::all();
+        $selectCats['subCategoryList'] = Subcategory::all();
+
+        return view('products.edit', compact('product','selectCats'));
     }
     
 
