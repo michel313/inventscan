@@ -1,0 +1,207 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Product;
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Supplier;
+use App\Category;
+use App\Subcategory;
+use App\ChildProduct;
+
+class ProductsController extends Controller
+{
+
+
+    /**
+     * method construct
+    **/
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+    /**
+     * method index
+     **/
+
+    public function index()
+    {
+      $products = Product::paginate(50);
+      return view('products.index', compact('products'));
+    }
+    
+    /**
+     * method edit
+     * @param $product
+     **/
+    public function edit(Product $product)
+    {
+      return view('products.edit', compact('product'));
+    }
+    
+
+    /**
+     * method new
+     **/
+    public function new()
+    {
+        $selectCats['suppliersList']   = Supplier::all();
+        $selectCats['categoryList']    = Category::all();
+        $selectCats['subCategoryList'] = Subcategory::all();
+        
+        return view('products.new',compact('selectCats'));
+    }
+    
+
+    /**
+     * method store
+     * @param $request
+     * @param $product
+     **/
+    public function store(Request $request, Product $product)
+    {
+        
+      $this->validate($request, [
+        'sku' => 'required|unique:products,sku',
+        'title' => 'required',
+        'price' => 'required',
+        'ean_code' => 'required|unique:products,ean_code'
+      ]);
+
+      $product->create($request->all());
+
+      flash()->success('Product has been saved successfully');
+
+      return redirect('products');
+    }
+
+
+
+    /**
+     * method update
+     * @param $request
+     * @param $product
+     **/
+    public function update(Request $request, Product $product)
+    {
+      $this->validate($request, [
+        'sku'       => 'required|unique:products,sku',
+        'title'     => 'required',
+        'price'     => 'required',
+        'ean_code'  => 'required|unique:products,ean_code'
+      ]);
+      
+      $product->update($request->all());
+
+      flash()->success('Product has been updated successfully');
+
+      return redirect('products');
+    }
+
+    
+    /**
+     * method destroy
+     * @param $request
+     * @param $product
+     **/
+    public function destroy(Request $request, Product $product)
+    {
+        if ($request->ajax()){
+
+           $product_id = $request['product_id'];
+           $result     = $product->find($product_id)->delete();
+
+           return response()->json(['status' => 'success']);
+
+           exit;
+            
+        }else{
+            $product->delete();
+
+            flash()->success('Product has been removed successfully');
+
+            return redirect('products');
+        }
+
+    }
+    
+    
+    /**
+     * @param $id
+     * @return \Illuminate\View\View
+    **/
+    public function productsChild($id = false){
+
+        $product_id       = $id;
+        $productChildList = ChildProduct::where('product_id',$product_id)->get();
+      
+        return view('products.child-product-all',compact('product_id','productChildList'));
+    }
+
+
+    /**
+     * @param int|bool $id
+     * @return \Illuminate\View\View
+     */
+    public function productsChildCreate($id = false){
+        
+        $selectCats['suppliersList']   = Supplier::all();
+        $selectCats['categoryList']    = Category::all();
+        $selectCats['subCategoryList'] = Subcategory::all();
+
+        $productInfo                =  Product::find($id);
+        $productChildLast           =  ChildProduct::orderBy('id', 'desc')->where('product_id',$id)->first();
+        $productInfo['childCount']  =  ChildProduct::where('product_id',$id)->count();
+
+        if(!empty($productChildLast->sku)){
+            $getChildNumber       =  explode('.',$productChildLast->sku)['1'];
+        }
+
+        if(empty($getChildNumber)){
+            $getChildNumber = 1;
+        }else{
+            $getChildNumber++;
+        }
+
+        $productInfo['childSkuNumber']  =  $getChildNumber;
+
+        return view('products.product-child-create',compact('productInfo','productChildLast','selectCats'));
+    }
+
+
+    /**
+     * @param $request
+     * @param $childProduct
+     * @functionality add in db childProduct new child
+    **/
+    public function createChild(Request $request,ChildProduct $childProduct){
+
+        ChildProduct::create($request->all());
+
+        $childCount    =  ChildProduct::where('product_id',$request['product_id'])->count();
+        $productPrice  =  Product::where('id',$request['product_id'])->first();
+        $newPrice      = (int)$productPrice->price / (int)$childCount;
+
+        $childProduct->where('product_id', $request['product_id'])->update(['secondaryPrice'=>$newPrice]);
+
+        return redirect('products/'.$request['product_id'].'/child');
+    }
+
+    /**
+     * method editChild
+     * @param $pr_id;
+     * @param $child_id;
+     * @functionality edit part of Child Product
+    **/
+
+    public function editChild($pr_id = false,$child_id = false){
+
+        $childProduct = ChildProduct::find($child_id);
+
+        return view('products.editChild',compact('childProduct'));
+    }
+
+
+}

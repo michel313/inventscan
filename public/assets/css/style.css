@@ -1,0 +1,47 @@
+body {
+    font-family: 'Lato';
+}
+
+.fa-btn {
+    margin-right: 6px;
+}
+
+.panel.panel-default .table>tbody>tr>td{
+    vertical-align: middle;
+}
+
+.edit-check{
+    background-color: #00a651;
+    border-color: #008d45;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+.remove-cancel{
+    background-color: #cc2424;
+    border-color: #b62020;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+.remove-cancel:hover{
+    background-color: #fff;
+    color:#cc2424 ;
+}
+
+.edit-check:hover{
+    background-color: #fff;
+    color:#00a651 ;
+}
+
+.table.table-striped td:nth-last-child(2){
+    /*text-align: right;*/
+}
+
+.href-button{
+    margin-bottom: 20px;
+}
+
+.bord-right{
+    border-right: 1px solid #333;
+}
