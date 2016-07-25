@@ -28,7 +28,7 @@
                             <input type="hidden" name="sku" value="{{$productInfo->sku .'.'.$productInfo->childSkuNumber}}">
                             <input type="hidden" name="product_id" value="{{$productInfo->id}}">
 
-                            @include ('products.create-product-child')
+                            @include ('products.forms.create-product-child')
 
                             <button class="btn btn-success">Add new Child</button>
 

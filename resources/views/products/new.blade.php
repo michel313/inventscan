@@ -15,7 +15,7 @@
                 <div class="panel-body">
                   <form class="" action="/products" method="post">
 
-                    @include ('products.create-product-child')
+                    @include ('products.forms.create-product-child')
 
                     <div class="form-group">
                       <input type="submit" value="Save product" class="btn btn-primary">

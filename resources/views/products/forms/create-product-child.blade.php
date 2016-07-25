@@ -1,22 +1,25 @@
-
     @if(!empty($mainProduct))
         <div class="form-group">
             <label for="pr-sku">ArtID</label>
             <input type="text" name="sku" value="{{ old('sku') }}" class="form-control" id="pr-sku" required>
         </div>
     @endif
+
     <div class="form-group">
         <label for="pr-title">Omschrijving</label>
         <input type="text" name="title" value="{{ old('title') }}" class="form-control" id="pr-title" required>
     </div>
+
     <div class="form-group">
         <label for="pr-unit">Eenheid <small>(optional)</small></label>
         <input type="text" name="unit" value="{{ old('unit') }}" class="form-control" id="pr-unit">
     </div>
+
     <div class="form-group">
         <label for="pr-content">Inhoud <small>(optional)</small></label>
         <input type="text" name="content" value="{{ old('content') }}" class="form-control" id="pr-content">
     </div>
+
     @if(!empty($mainProduct))
         <div class="form-group">
             <label for="pr-price">Prijs</label>
@@ -74,7 +77,6 @@
 
 
     <div class="form-group">
-
         <label for="sel_subCat">Subcategory<small>(optional)</small></label>
 
         <select class="form-control" name="subcategory_id" id="sel_subCat">
@@ -85,5 +87,4 @@
                 @endforeach
             @endif
         </select>
-
     </div>

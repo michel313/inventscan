@@ -198,9 +198,13 @@ class ProductsController extends Controller
 
     public function editChild($pr_id = false,$child_id = false){
 
-        $childProduct = ChildProduct::find($child_id);
+        $selectCats['suppliersList']   = Supplier::all();
+        $selectCats['categoryList']    = Category::all();
+        $selectCats['subCategoryList'] = Subcategory::all();
 
-        return view('products.editChild',compact('childProduct'));
+        $product = ChildProduct::find($child_id);
+
+        return view('products.editChild',compact('product','selectCats'));
     }
 
 
