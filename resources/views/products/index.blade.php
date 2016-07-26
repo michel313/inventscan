@@ -44,7 +44,10 @@
                             <td>{{ $product->category_id }}</td>
                             <td class="text-right">
                                 <a href="/products/{{ $product->id }}/edit" class="btn edit-check"> <i class="fa fa-pencil"></i></a>
-                                <a href="javascript:void(0)" class="btn remove-cancel  delProduct" data-token="{{ csrf_token() }}" data-id="{!! $product->id !!}"> <i class="fa fa-remove"></i> </a>
+                                <a href="javascript:void(0)" class="btn remove-cancel  deleteAjax"
+                                   data-token="{{ csrf_token() }}"
+                                   data-id="{!! $product->id !!}"
+                                   data-type="deleteProduct"> <i class="fa fa-remove"></i> </a>
                             </td>
                           </tr>
                         @endforeach

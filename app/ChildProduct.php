@@ -22,4 +22,5 @@ class ChildProduct extends Model
         'category_id',
         'subcategory_id'
     ];
+
 }

@@ -15,8 +15,10 @@
                     <div class="panel-heading">Update Child Product</div>
                     <div class="panel-body">
 
-                        {!! Form::open(array('url' => '/child-product/create', 'method' => 'post')) !!}
+                        {!! Form::open(array('url' => '/child-product/update', 'method' => 'patch')) !!}
 
+                        <input type="hidden" name="childID" value="{{ $product->id }}">
+                        <input type="hidden" name="mainProductID" value="{{ $product->mainProduct }}">
 
                         @include ('products.forms.edit-product-child')
 

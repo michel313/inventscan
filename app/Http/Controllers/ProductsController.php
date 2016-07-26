@@ -13,7 +13,6 @@ use App\ChildProduct;
 class ProductsController extends Controller
 {
 
-
     /**
      * method construct
     **/
@@ -155,12 +154,12 @@ class ProductsController extends Controller
         $selectCats['categoryList']    = Category::all();
         $selectCats['subCategoryList'] = Subcategory::all();
 
-        $productInfo                =  Product::find($id);
-        $productChildLast           =  ChildProduct::orderBy('id', 'desc')->where('product_id',$id)->first();
-        $productInfo['childCount']  =  ChildProduct::where('product_id',$id)->count();
+        $productInfo                   =  Product::find($id);
+        $productChildLast              =  ChildProduct::orderBy('id', 'desc')->where('product_id',$id)->first();
+        $productInfo['childCount']     =  ChildProduct::where('product_id',$id)->count();
 
         if(!empty($productChildLast->sku)){
-            $getChildNumber       =  explode('.',$productChildLast->sku)['1'];
+            $getChildNumber  =  explode('.',$productChildLast->sku)['1'];
         }
 
         if(empty($getChildNumber)){
@@ -207,9 +206,55 @@ class ProductsController extends Controller
         $selectCats['subCategoryList'] = Subcategory::all();
 
         $product = ChildProduct::find($child_id);
+        $product['mainProduct']=$pr_id;
 
         return view('products.editChild',compact('product','selectCats'));
     }
+
+
+    /**
+     * method updateChild
+     * @param $request
+     * @param $childProduct
+    **/
+
+    public function updateChild(Request $request,ChildProduct $childProduct){
+
+        $this->validate($request, [
+            'title'     => 'required',
+            'mainPrice' => 'required'
+        ]);
+
+        $childID       = $request->input('childID');
+        $mainProductID = $request->input('mainProductID');
+
+        $input = $request->except('_method', '_token','childID','mainProductID');
+
+        $childProduct->where('id',$childID)->update($input);
+
+        return redirect('products/'.$mainProductID.'/child');
+
+    }
+
+    /**
+     * method destroy
+     * @param $request
+     * @param $childProduct
+     **/
+    public function destroyChild(Request $request, ChildProduct $childProduct)
+    {
+        if ($request->ajax()) {
+
+            $product_id = $request['product_id'];
+            $result     = $childProduct->find($product_id)->delete();
+
+            return response()->json(['status' => 'success']);
+
+            exit;
+        }
+   
+    }
+    
 
 
 }

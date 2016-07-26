@@ -32,6 +32,10 @@ Route::delete('products/{product}', 'ProductsController@destroy');
 Route::get('products/{num}/child','ProductsController@productsChild')->where('num', '[0-9]+');
 Route::get('products/{num}/child/create','ProductsController@productsChildCreate')->where('num', '[0-9]+');
 Route::post('child-product/create','ProductsController@createChild');
+Route::patch('child-product/update','ProductsController@updateChild');
+
+Route::delete('child-product/{product}', 'ProductsController@destroyChild');
+
 
 Route::get('products/{num}/child/{childNum}/edit','ProductsController@editChild');
 

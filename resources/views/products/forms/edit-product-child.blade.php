@@ -1,14 +1,11 @@
 
-@if(!empty($editMainProduct))
+
 <div class="form-group">
     <label for="">ArtID</label>
-    <input type="text" name="sku" value="{{ $product->sku }}" class="form-control" required>
+    <input type="text" @if(!empty($editChildProduct)) {{'disabled'}} @endif name="sku" value="{{ $product->sku }}" class="form-control" required>
 </div>
-@endif
 
-@if(!empty($editChildProduct))
-    <h4>SKU - {{ $product->sku }}</h4>
-@endif
+
 <div class="form-group">
     <label for="">Omschrijving</label>
     <input type="text" name="title" value="{{ $product->title }}" class="form-control" required>
@@ -37,7 +34,7 @@
         <label for="mainPrice">Main Prijs</label>
         <div class="input-group">
             <div class="input-group-addon">&euro;</div>
-            <input type="text" name="price" value="{{ $product->mainPrice }}" class="form-control" id="mainPrice" required>
+            <input type="text" name="mainPrice" value="{{ $product->mainPrice }}" class="form-control" id="mainPrice" required>
         </div>
     </div>
 
@@ -45,7 +42,7 @@
         <label for="secPrice">Secondary Prijs</label>
         <div class="input-group">
             <div class="input-group-addon">&euro;</div>
-            <input type="text" name="price" value="{{ $product->secondaryPrice }}" class="form-control" id="secPrice" required>
+            <input disabled type="text" name="secondaryPrice" value="{{ $product->secondaryPrice }}" class="form-control" id="secPrice" required>
         </div>
     </div>
 

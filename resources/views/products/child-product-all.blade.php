@@ -36,7 +36,16 @@
                                         <td>{{$productChild->sku}}</td>
                                         <td>&euro; {{$productChild->secondaryPrice}}</td>
                                         <td>&euro; {{$productChild->mainPrice}}</td>
-                                        <td class="text-right"><a href="{{ url('/products/'.$product_id.'/child/'.$productChild->id.'/edit') }}" class="btn edit-check"> <i class="fa fa-pencil"></i></a> <a href="" class="btn remove-cancel"> <i class="fa fa-remove"></i> </a></td>
+                                        <td class="text-right">
+                                            <a href="{{ url('/products/'.$product_id.'/child/'.$productChild->id.'/edit') }}" class="btn edit-check"> <i class="fa fa-pencil"></i></a>
+                                            <a href="javascript:void(0)" class="btn remove-cancel  deleteAjax"
+                                               data-token="{{ csrf_token() }}"
+                                               data-id="{!! $productChild->id !!}"
+                                               data-type="deleteChildProduct">
+
+                                                <i class="fa fa-remove"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

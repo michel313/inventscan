@@ -32,7 +32,7 @@
 
     @if(!empty($childProduct))
         <div class="form-group">
-            <label for="pr-price">Prijs</label>
+            <label for="pr-price">Main Prijs</label>
             <div class="input-group">
                 <div class="input-group-addon">&euro;</div>
                 <input type="text" name="mainPrice" value="{{ old('mainPrice') }}" class="form-control" id="pr-price" required>
