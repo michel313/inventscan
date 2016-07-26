@@ -38,12 +38,6 @@
                 <input type="text" name="mainPrice" value="{{ old('mainPrice') }}" class="form-control" id="pr-price" required>
             </div>
         </div>
-
-        <div class="form-group">
-            <label for="price_formula">Formula Secondary Price</label>
-            <input type="text" name="priceFormula" value="" class="form-control" id="price_formula" data-token="{{csrf_token()}}" required>
-        </div>
-
     @endif
 
     <div class="form-group">

@@ -24,9 +24,7 @@ class ChildProducts extends Migration
             $table->string('title');
             $table->string('unit');
             $table->string('content');
-            $table->decimal('mainPrice', 8, 2);
-            $table->decimal('secondaryPrice', 8, 2);
-            $table->string('priceFormula');
+            $table->string('mainPrice');
             $table->string('ean_code');
             $table->integer('supplier_id')->unsigned()->index();
             $table->integer('category_id')->unsigned()->index();

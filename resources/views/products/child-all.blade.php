@@ -25,7 +25,6 @@
                             <thead>
                             <tr>
                                 <th>ArtID</th>
-                                <th>Secondary Price.</th>
                                 <th>Main Price.</th>
                                 <th></th>
                             </tr>
@@ -34,8 +33,7 @@
                                 @foreach($productChildList as $productChild)
                                     <tr>
                                         <td>{{$productChild->sku}}</td>
-                                        <td>&euro; {{$productChild->secondaryPrice}}</td>
-                                        <td>&euro; {{$productChild->mainPrice}}</td>
+                                        <td>{{$productChild->mainPrice}}</td>
                                         <td class="text-right">
                                             <a href="{{ url('/products/'.$product_id.'/child/'.$productChild->id.'/edit') }}" class="btn edit-check"> <i class="fa fa-pencil"></i></a>
                                             <a href="javascript:void(0)" class="btn remove-cancel  deleteAjax"

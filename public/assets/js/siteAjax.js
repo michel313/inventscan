@@ -67,31 +67,3 @@ function deleteAjax(url){
 
 
 }
-
-
-$('.generateFormula').click(function (e) {
-    e.preventDefault();
-
-    var priceFormula  = $('#price_formula').val();
-    var token         = $('#price_formula').data('token');
-    var mainProductID = $('#mainProductID').val();     
-
-    var secondaryPrice = $('#secPrice');
-
-    $.ajax({
-        url: base_url+'child-product/price-formula',
-        type: 'post',
-        dataType: 'json',
-        data: {priceFormula: priceFormula,mainProductID:mainProductID, _token: token},
-        success: function(response) {
-
-            if (response.status == 'success') {
-
-                var price = response.response;
-                
-                secondaryPrice.val(price);
-            }
-        }
-    });
-
-});

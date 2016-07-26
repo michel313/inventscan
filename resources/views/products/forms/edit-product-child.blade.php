@@ -37,17 +37,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label for="price_formula">Formula Secondary Price</label>
-        <input type="text" name="priceFormula" value="{{ $product->priceFormula }}" class="form-control" id="price_formula" data-token="{{csrf_token()}}" required>
-    </div>
-
-    <div class="form-group">
-        <label for="secondaryPrice">Secondary Price</label>
-        <input disabled type="text" name="secondaryPrice" value="{{ $product->secondaryPrice }}" class="form-control" id="secondaryPrice" data-token="{{csrf_token()}}" required>
-    </div>
-
-
 @endif
 
 <div class="form-group">

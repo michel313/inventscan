@@ -143,7 +143,7 @@ class ProductsController extends Controller
         $product_id       = $id;
         $productChildList = ChildProduct::where('product_id',$product_id)->get();
       
-        return view('products.child-product-all',compact('product_id','productChildList'));
+        return view('products.child-all',compact('product_id','productChildList'));
     }
 
 
@@ -173,7 +173,7 @@ class ProductsController extends Controller
 
         $productInfo['childSkuNumber']  =  $getChildNumber;
 
-        return view('products.product-child-create',compact('productInfo','productChildLast','selectCats'));
+        return view('products.child-create',compact('productInfo','productChildLast','selectCats'));
     }
 
 
@@ -184,31 +184,6 @@ class ProductsController extends Controller
      * @functionality add in db childProduct new child
     **/
     public function createChild(Request $request,ChildProduct $childProduct,Product $product){
-
-        $priceFormula  = $request['priceFormula'];
-        $mainPrice     = $product->where('id', $request['product_id'])->pluck('price')->first();
-        $childPrice    = '';
-
-
-        if (strpos($priceFormula, '/') !== false ) {
-
-            $priceFormula = explode('/',$priceFormula);
-
-            $quantity = $priceFormula[1];
-
-            $childPrice = (int)$mainPrice/(int)$quantity;
-
-        }else if(strpos($priceFormula, '*') !== false){
-
-            $priceFormula = explode('*',$priceFormula);
-
-            $quantity = $priceFormula[1];
-
-            $childPrice = (int)$mainPrice*(int)$quantity;
-
-        }
-
-        $request['secondaryPrice'] = $childPrice;
 
         ChildProduct::create($request->all());
 
@@ -231,7 +206,7 @@ class ProductsController extends Controller
         $product                = ChildProduct::find($child_id);
         $product['mainProduct'] = $pr_id;
 
-        return view('products.editChild',compact('product','selectCats'));
+        return view('products.child-edit',compact('product','selectCats'));
     }
 
 
@@ -251,35 +226,27 @@ class ProductsController extends Controller
 
         $childID       = $request->input('childID');
         $mainProductID = $request->input('mainProductID');
-        $priceFormula  = $request['priceFormula'];
-        $mainPrice     = $product->where('id',$mainProductID)->pluck('price')->first();
-        $childPrice    = '';
 
 
+//        if (strpos($priceFormula, '/') !== false ) {
+//
+//            $priceFormula = explode('/',$priceFormula);
+//
+//            $quantity = $priceFormula[1];
+//
+//            $childPrice = (float)$mainPrice/(float)$quantity;
+//
+//        }else if(strpos($priceFormula, '*') !== false){
+//
+//            $priceFormula = explode('*',$priceFormula);
+//
+//            $quantity = $priceFormula[1];
+//
+//            $childPrice = (float)$mainPrice*(float)$quantity;
+//
+//        }
 
-        if (strpos($priceFormula, '/') !== false ) {
-
-            $priceFormula = explode('/',$priceFormula);
-
-            $quantity = $priceFormula[1];
-
-            $childPrice = (int)$mainPrice/(int)$quantity;
-
-        }else if(strpos($priceFormula, '*') !== false){
-
-            $priceFormula = explode('*',$priceFormula);
-
-            $quantity = $priceFormula[1];
-
-            $childPrice = (int)$mainPrice*(int)$quantity;
-
-        }
-
-
-
-        $input                   = $request->except('_method', '_token','childID','mainProductID','sku','secondaryPrice');
-        $input['secondaryPrice'] = $childPrice;
-
+        $input                   = $request->except('_method', '_token','childID','mainProductID','sku');
         $childProduct->where('id',$childID)->update($input);
 
         return redirect('products/'.$mainProductID.'/child');
@@ -296,6 +263,7 @@ class ProductsController extends Controller
         if ($request->ajax()) {
 
             $product_id = $request['product_id'];
+            
             $result     = $childProduct->find($product_id)->delete();
 
             return response()->json(['status' => 'success']);
@@ -306,46 +274,6 @@ class ProductsController extends Controller
     }
     
     
-    /**
-     * method priceFormula
-     * @param $request
-     * @param $product
-    **/
-    public function priceFormula(Request $request,Product $product){
-        if ($request->ajax()) {
-
-            $mainProductID = $request['mainProductID'];
-            $priceFormula  = $request['priceFormula'];
-
-            $mainPrice = $product->where('id', $mainProductID)->pluck('price')->first();
-
-            if (strpos($priceFormula, '/') !== false ) {
-
-                $priceFormula = explode('/',$priceFormula);
-
-                $quantity = $priceFormula[1];
-
-                $childPrice = (int)$mainPrice/(int)$quantity;
-
-                return response()->json(['status' => 'success','response' => $childPrice]);
-
-                exit;
-
-            }else if(strpos($priceFormula, '*') !== false){
-
-                $priceFormula = explode('*',$priceFormula);
-
-                $quantity = $priceFormula[1];
-
-                $childPrice = (int)$mainPrice*(int)$quantity;
-
-                return response()->json(['status' => 'success','response' => $childPrice]);
-
-                exit;
-            }
-
-        }
-    }
 
 
 }
