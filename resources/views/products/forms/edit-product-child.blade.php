@@ -16,6 +16,7 @@
     <label for="">Inhoud <small>(optional)</small></label>
     <input type="text" name="content" value="{{ $product->content }}" class="form-control">
 </div>
+
 @if(!empty($editMainProduct))
     <div class="form-group">
         <label for="">Prijs</label>
@@ -38,23 +39,14 @@
 
     <div class="form-group">
         <label for="price_formula">Formula Secondary Price</label>
-        <div class="row">
-            <div class="col-md-3">
-                <input type="text" name="price_formula" value="" class="form-control" id="price_formula" data-token="{{csrf_token()}}" required>
-            </div>
-            <div class="col-md-2">
-                <button class="btn btn-primary generateFormula">Generate Formula</button>
-            </div>
-        </div>
+        <input type="text" name="priceFormula" value="{{ $product->priceFormula }}" class="form-control" id="price_formula" data-token="{{csrf_token()}}" required>
     </div>
 
     <div class="form-group">
-        <label for="secPrice">Secondary Prijs</label>
-        <div class="input-group">
-            <div class="input-group-addon">&euro;</div>
-            <input disabled type="text" name="secondaryPrice" value="" class="form-control" id="secPrice" required>
-        </div>
+        <label for="secondaryPrice">Secondary Price</label>
+        <input disabled type="text" name="secondaryPrice" value="{{ $product->secondaryPrice }}" class="form-control" id="secondaryPrice" data-token="{{csrf_token()}}" required>
     </div>
+
 
 @endif
 

@@ -17,6 +17,7 @@ class ChildProduct extends Model
         'content',
         'mainPrice',
         'secondaryPrice',
+        'priceFormula',
         'ean_code',
         'supplier_id',
         'category_id',

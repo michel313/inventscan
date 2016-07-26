@@ -180,17 +180,37 @@ class ProductsController extends Controller
     /**
      * @param $request
      * @param $childProduct
+     * @param $product
      * @functionality add in db childProduct new child
     **/
-    public function createChild(Request $request,ChildProduct $childProduct){
+    public function createChild(Request $request,ChildProduct $childProduct,Product $product){
+
+        $priceFormula  = $request['priceFormula'];
+        $mainPrice     = $product->where('id', $request['product_id'])->pluck('price')->first();
+        $childPrice    = '';
+
+
+        if (strpos($priceFormula, '/') !== false ) {
+
+            $priceFormula = explode('/',$priceFormula);
+
+            $quantity = $priceFormula[1];
+
+            $childPrice = (int)$mainPrice/(int)$quantity;
+
+        }else if(strpos($priceFormula, '*') !== false){
+
+            $priceFormula = explode('*',$priceFormula);
+
+            $quantity = $priceFormula[1];
+
+            $childPrice = (int)$mainPrice*(int)$quantity;
+
+        }
+
+        $request['secondaryPrice'] = $childPrice;
 
         ChildProduct::create($request->all());
-
-        $childCount    =  ChildProduct::where('product_id',$request['product_id'])->count();
-        $productPrice  =  Product::where('id',$request['product_id'])->first();
-        $newPrice      = (int)$productPrice->price / (int)$childCount;
-
-//        $childProduct->where('product_id', $request['product_id'])->update(['secondaryPrice'=>$newPrice]);
 
         return redirect('products/'.$request['product_id'].'/child');
     }
@@ -219,9 +239,10 @@ class ProductsController extends Controller
      * method updateChild
      * @param $request
      * @param $childProduct
+     * @param $product
     **/
 
-    public function updateChild(Request $request,ChildProduct $childProduct){
+    public function updateChild(Request $request,ChildProduct $childProduct,Product $product){
 
         $this->validate($request, [
             'title'     => 'required',
@@ -230,8 +251,34 @@ class ProductsController extends Controller
 
         $childID       = $request->input('childID');
         $mainProductID = $request->input('mainProductID');
+        $priceFormula  = $request['priceFormula'];
+        $mainPrice     = $product->where('id',$mainProductID)->pluck('price')->first();
+        $childPrice    = '';
 
-        $input = $request->except('_method', '_token','childID','mainProductID','price_formula');
+
+
+        if (strpos($priceFormula, '/') !== false ) {
+
+            $priceFormula = explode('/',$priceFormula);
+
+            $quantity = $priceFormula[1];
+
+            $childPrice = (int)$mainPrice/(int)$quantity;
+
+        }else if(strpos($priceFormula, '*') !== false){
+
+            $priceFormula = explode('*',$priceFormula);
+
+            $quantity = $priceFormula[1];
+
+            $childPrice = (int)$mainPrice*(int)$quantity;
+
+        }
+
+
+
+        $input                   = $request->except('_method', '_token','childID','mainProductID','sku','secondaryPrice');
+        $input['secondaryPrice'] = $childPrice;
 
         $childProduct->where('id',$childID)->update($input);
 

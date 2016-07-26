@@ -26,7 +26,7 @@
                         {!! Form::open(array('url' => '/child-product/create', 'method' => 'post')) !!}
 
                             <input type="hidden" name="sku" value="{{$productInfo->sku .'.'.$productInfo->childSkuNumber}}">
-                            <input type="hidden" name="product_id" value="{{$productInfo->id}}">
+                            <input type="hidden" name="product_id" id="mainProductID" value="{{$productInfo->id}}">
 
                             @include ('products.forms.create-product-child')
 
