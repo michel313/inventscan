@@ -90,10 +90,10 @@ class ProductsController extends Controller
     public function update(Request $request, Product $product)
     {
       $this->validate($request, [
-        'sku'       => 'required|unique:products,sku',
+        'sku'       => 'required',
         'title'     => 'required',
         'price'     => 'required',
-        'ean_code'  => 'required|unique:products,ean_code'
+        'ean_code'  => 'required'
       ]);
       
       $product->update($request->all());
@@ -254,7 +254,6 @@ class ProductsController extends Controller
         }
    
     }
-    
 
 
 }

@@ -49,6 +49,11 @@
 @endif
 
 <div class="form-group">
+    <label for="pr-ean_code">EAN Code</label>
+    <input type="text" name="ean_code" value="{{ $product->ean_code }}" class="form-control" id="pr-ean_code" required>
+</div>
+
+<div class="form-group">
     <label for="sel_supp">Supplier <small>(optional)</small></label>
 
     <select class="form-control" name="supplier_id" id="sel_supp">
