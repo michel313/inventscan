@@ -95,7 +95,10 @@ class ProductsController extends Controller
         'price'     => 'required',
         'ean_code'  => 'required'
       ]);
-      
+
+
+
+
       $product->update($request->all());
 
       flash()->success('Product has been updated successfully');
@@ -205,8 +208,8 @@ class ProductsController extends Controller
         $selectCats['categoryList']    = Category::all();
         $selectCats['subCategoryList'] = Subcategory::all();
 
-        $product = ChildProduct::find($child_id);
-        $product['mainProduct']=$pr_id;
+        $product                = ChildProduct::find($child_id);
+        $product['mainProduct'] = $pr_id;
 
         return view('products.editChild',compact('product','selectCats'));
     }
@@ -228,7 +231,7 @@ class ProductsController extends Controller
         $childID       = $request->input('childID');
         $mainProductID = $request->input('mainProductID');
 
-        $input = $request->except('_method', '_token','childID','mainProductID');
+        $input = $request->except('_method', '_token','childID','mainProductID','price_formula');
 
         $childProduct->where('id',$childID)->update($input);
 
@@ -253,6 +256,48 @@ class ProductsController extends Controller
             exit;
         }
    
+    }
+    
+    
+    /**
+     * method priceFormula
+     * @param $request
+     * @param $product
+    **/
+    public function priceFormula(Request $request,Product $product){
+        if ($request->ajax()) {
+
+            $mainProductID = $request['mainProductID'];
+            $priceFormula  = $request['priceFormula'];
+
+            $mainPrice = $product->where('id', $mainProductID)->pluck('price')->first();
+
+            if (strpos($priceFormula, '/') !== false ) {
+
+                $priceFormula = explode('/',$priceFormula);
+
+                $quantity = $priceFormula[1];
+
+                $childPrice = (int)$mainPrice/(int)$quantity;
+
+                return response()->json(['status' => 'success','response' => $childPrice]);
+
+                exit;
+
+            }else if(strpos($priceFormula, '*') !== false){
+
+                $priceFormula = explode('*',$priceFormula);
+
+                $quantity = $priceFormula[1];
+
+                $childPrice = (int)$mainPrice*(int)$quantity;
+
+                return response()->json(['status' => 'success','response' => $childPrice]);
+
+                exit;
+            }
+
+        }
     }
 
 

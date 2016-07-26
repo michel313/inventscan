@@ -9,6 +9,7 @@
       <div class="col-md-2">
         <a href="{{ url('/products/new') }}" class="btn btn-primary btn-block btn-h1-spacing btn-">Add new product</a>
       </div>
+
       <div class="col-md-12">
         <hr>
       </div>

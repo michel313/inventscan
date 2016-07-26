@@ -1,5 +1,3 @@
-
-
 <div class="form-group">
     <label for="">ArtID</label>
     <input type="text" @if(!empty($editChildProduct)) {{'disabled'}} @endif name="sku" value="{{ $product->sku }}" class="form-control" required>
@@ -39,10 +37,22 @@
     </div>
 
     <div class="form-group">
+        <label for="price_formula">Formula Secondary Price</label>
+        <div class="row">
+            <div class="col-md-3">
+                <input type="text" name="price_formula" value="" class="form-control" id="price_formula" data-token="{{csrf_token()}}" required>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary generateFormula">Generate Formula</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="secPrice">Secondary Prijs</label>
         <div class="input-group">
             <div class="input-group-addon">&euro;</div>
-            <input disabled type="text" name="secondaryPrice" value="{{ $product->secondaryPrice }}" class="form-control" id="secPrice" required>
+            <input disabled type="text" name="secondaryPrice" value="" class="form-control" id="secPrice" required>
         </div>
     </div>
 
@@ -97,26 +107,6 @@
         @endif
     </select>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
