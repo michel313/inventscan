@@ -74,8 +74,8 @@
       <file leaf-file-name="ProductsController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="233" column="94" selection-start-line="233" selection-start-column="94" selection-end-line="233" selection-end-column="94" />
+            <state relative-caret-position="268">
+              <caret line="192" column="89" selection-start-line="192" selection-start-column="89" selection-end-line="192" selection-end-column="89" />
               <folding />
             </state>
           </provider>
@@ -497,12 +497,12 @@
       <workItem from="1469424208418" duration="21603000" />
       <workItem from="1469452537063" duration="15922000" />
       <workItem from="1469513503060" duration="4681000" />
-      <workItem from="1469516972262" duration="12777000" />
+      <workItem from="1469516972262" duration="13167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99324000" />
+    <option name="totallyTimeSpent" value="99714000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -933,8 +933,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="233" column="94" selection-start-line="233" selection-start-column="94" selection-end-line="233" selection-end-column="94" />
+        <state relative-caret-position="268">
+          <caret line="192" column="89" selection-start-line="192" selection-start-column="89" selection-end-line="192" selection-end-column="89" />
           <folding />
         </state>
       </provider>

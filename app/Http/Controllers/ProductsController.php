@@ -190,7 +190,7 @@ class ProductsController extends Controller
         $productPrice  =  Product::where('id',$request['product_id'])->first();
         $newPrice      = (int)$productPrice->price / (int)$childCount;
 
-        $childProduct->where('product_id', $request['product_id'])->update(['secondaryPrice'=>$newPrice]);
+//        $childProduct->where('product_id', $request['product_id'])->update(['secondaryPrice'=>$newPrice]);
 
         return redirect('products/'.$request['product_id'].'/child');
     }
