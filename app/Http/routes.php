@@ -20,6 +20,11 @@ Route::get('/', function () {
 
 Route::auth();
 
+Route::get('/404', function () {
+    return view('errors.404');
+});
+
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('products', 'ProductsController@index');

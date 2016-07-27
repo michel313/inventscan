@@ -18,7 +18,6 @@
                         {!! Form::open(array('url' => '/child-product/update', 'method' => 'patch')) !!}
 
                         <input type="hidden"  name="childID" value="{{ $product->id }}">
-                        <input type="hidden" id="mainProductID" name="mainProductID" value="{{ $product->mainProduct }}">
 
                         @include ('products.forms.edit-product-child')
 

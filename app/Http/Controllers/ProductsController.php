@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ProductChildMerge;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -9,10 +10,13 @@ use App\Supplier;
 use App\Category;
 use App\Subcategory;
 use App\ChildProduct;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\View\View;
+use Psy\Util\Json;
 
 class ProductsController extends Controller
 {
-
     /**
      * method construct
     **/
@@ -23,17 +27,36 @@ class ProductsController extends Controller
     
     /**
      * method index
+     * @return mixed
      **/
-
     public function index()
     {
-      $products = Product::paginate(50);
-      return view('products.index', compact('products'));
+        $products = ProductChildMerge::orderBy('sku')->paginate(10);
+
+        foreach ($products as $product){
+
+            $mainProductPrice = Product::where('id', $product->product_id)->get()->pluck('price')->first();
+
+            if (strpos($product->mainPrice, '/')){
+                $quantity              = explode('/',$product->mainPrice);
+                $formulaPrice          = (float)$mainProductPrice / (float)$quantity[1];
+                $product->FormulaPrice = $formulaPrice;
+
+            }else if(strpos($product->mainPrice, '*')){
+                $quantity              = explode('*',$product->mainPrice);
+                $formulaPrice          = (float)$mainProductPrice * (float)$quantity[1];
+                $product->FormulaPrice = $formulaPrice;
+            }
+        }
+
+
+        return view('products.index', compact('products'));
     }
     
     /**
      * method edit
      * @param $product
+     * @return mixed
      **/
     public function edit(Product $product)
     {
@@ -43,11 +66,11 @@ class ProductsController extends Controller
 
         return view('products.edit', compact('product','selectCats'));
     }
-    
 
     /**
      * method new
-     **/
+     * @return mixed
+     */
     public function new()
     {
         $selectCats['suppliersList']   = Supplier::all();
@@ -56,20 +79,20 @@ class ProductsController extends Controller
         
         return view('products.new',compact('selectCats'));
     }
-    
 
     /**
      * method store
      * @param $request
      * @param $product
+     * @return Redirect
      **/
     public function store(Request $request, Product $product)
     {
         
       $this->validate($request, [
-        'sku' => 'required|unique:products,sku',
-        'title' => 'required',
-        'price' => 'required',
+        'sku'      => 'required|unique:products,sku',
+        'title'    => 'required',
+        'price'    => 'required',
         'ean_code' => 'required|unique:products,ean_code'
       ]);
 
@@ -80,12 +103,11 @@ class ProductsController extends Controller
       return redirect('products');
     }
 
-
-
     /**
      * method update
      * @param $request
      * @param $product
+     * @return Redirect
      **/
     public function update(Request $request, Product $product)
     {
@@ -96,9 +118,6 @@ class ProductsController extends Controller
         'ean_code'  => 'required'
       ]);
 
-
-
-
       $product->update($request->all());
 
       flash()->success('Product has been updated successfully');
@@ -106,11 +125,11 @@ class ProductsController extends Controller
       return redirect('products');
     }
 
-    
     /**
      * method destroy
      * @param $request
      * @param $product
+     * @return Json
      **/
     public function destroy(Request $request, Product $product)
     {
@@ -124,19 +143,20 @@ class ProductsController extends Controller
            exit;
             
         }else{
+
             $product->delete();
 
             flash()->success('Product has been removed successfully');
 
             return redirect('products');
+            
         }
 
     }
     
-    
     /**
      * @param $id
-     * @return \Illuminate\View\View
+     * @return View
     **/
     public function productsChild($id = false){
 
@@ -146,10 +166,9 @@ class ProductsController extends Controller
         return view('products.child-all',compact('product_id','productChildList'));
     }
 
-
     /**
      * @param int|bool $id
-     * @return \Illuminate\View\View
+     * @return \Illuminate\View\
      */
     public function productsChildCreate($id = false){
         
@@ -176,18 +195,16 @@ class ProductsController extends Controller
         return view('products.child-create',compact('productInfo','productChildLast','selectCats'));
     }
 
-
     /**
      * @param $request
-     * @param $childProduct
-     * @param $product
      * @functionality add in db childProduct new child
+     * @return Redirect
     **/
-    public function createChild(Request $request,ChildProduct $childProduct,Product $product){
+    public function createChild(Request $request){
 
         ChildProduct::create($request->all());
 
-        return redirect('products/'.$request['product_id'].'/child');
+        return redirect('products/');
     }
 
     /**
@@ -195,6 +212,7 @@ class ProductsController extends Controller
      * @param $pr_id;
      * @param $child_id;
      * @functionality edit part of Child Product
+     * @return Redirect
     **/
 
     public function editChild($pr_id = false,$child_id = false){
@@ -203,9 +221,8 @@ class ProductsController extends Controller
         $selectCats['categoryList']    = Category::all();
         $selectCats['subCategoryList'] = Subcategory::all();
 
-        $product                = ChildProduct::find($child_id);
-        $product['mainProduct'] = $pr_id;
-
+        $product = ChildProduct::find($child_id);
+        
         return view('products.child-edit',compact('product','selectCats'));
     }
 
@@ -214,10 +231,9 @@ class ProductsController extends Controller
      * method updateChild
      * @param $request
      * @param $childProduct
-     * @param $product
+     * @return Redirect
     **/
-
-    public function updateChild(Request $request,ChildProduct $childProduct,Product $product){
+    public function updateChild(Request $request,ChildProduct $childProduct){
 
         $this->validate($request, [
             'title'     => 'required',
@@ -225,31 +241,10 @@ class ProductsController extends Controller
         ]);
 
         $childID       = $request->input('childID');
-        $mainProductID = $request->input('mainProductID');
-
-
-//        if (strpos($priceFormula, '/') !== false ) {
-//
-//            $priceFormula = explode('/',$priceFormula);
-//
-//            $quantity = $priceFormula[1];
-//
-//            $childPrice = (float)$mainPrice/(float)$quantity;
-//
-//        }else if(strpos($priceFormula, '*') !== false){
-//
-//            $priceFormula = explode('*',$priceFormula);
-//
-//            $quantity = $priceFormula[1];
-//
-//            $childPrice = (float)$mainPrice*(float)$quantity;
-//
-//        }
-
-        $input                   = $request->except('_method', '_token','childID','mainProductID','sku');
+        $input = $request->except('_method', '_token','childID','mainProductID','sku');
         $childProduct->where('id',$childID)->update($input);
 
-        return redirect('products/'.$mainProductID.'/child');
+        return redirect('products/');
 
     }
 
@@ -257,13 +252,13 @@ class ProductsController extends Controller
      * method destroy
      * @param $request
      * @param $childProduct
+     * @return Json
      **/
     public function destroyChild(Request $request, ChildProduct $childProduct)
     {
         if ($request->ajax()) {
 
             $product_id = $request['product_id'];
-            
             $result     = $childProduct->find($product_id)->delete();
 
             return response()->json(['status' => 'success']);
@@ -272,8 +267,5 @@ class ProductsController extends Controller
         }
    
     }
-    
-    
-
 
 }

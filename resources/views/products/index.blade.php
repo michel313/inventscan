@@ -34,21 +34,45 @@
                       </thead>
                       <tbody>
                         @foreach ($products as $product)
+
                           <tr>
                             <td>{{ $product->sku }}</td>
                             <td>{{ $product->title }}</td>
-                            <td>{{ $product->unit }}</td>
+                            <td>{{ $product->unit}}</td>
                             <td>{{ $product->content }}</td>
-                            <td>&euro; {{ $product->price }}</td>
+                            <td>&euro;  {{ @$product->FormulaPrice }} - {{ @$product->mainPrice }} </td>
                             <td>{{ $product->ean_code }}</td>
                             <td>{{ $product->supplier_id }}</td>
                             <td>{{ $product->category_id }}</td>
                             <td class="text-right">
-                                <a href="/products/{{ $product->id }}/edit" class="btn edit-check"> <i class="fa fa-pencil"></i></a>
+
+                                <a
+                                   @if(is_null($product->child_id))
+                                        href="/products/{{ $product->product_id }}/edit"
+                                   @else
+                                        href="{{ url('/products/'.$product->product_id.'/child/'.$product->child_id.'/edit') }}"
+                                   @endif
+                                   class="btn edit-check"> <i class="fa fa-pencil"></i>
+                                </a>
+
                                 <a href="javascript:void(0)" class="btn remove-cancel  deleteAjax"
                                    data-token="{{ csrf_token() }}"
-                                   data-id="{!! $product->id !!}"
-                                   data-type="deleteProduct"> <i class="fa fa-remove"></i> </a>
+
+                                   @if(is_null($product->child_id))
+                                        data-type="deleteProduct"
+                                        data-id="{!! $product->product_id !!}"
+                                   @else
+                                        data-id="{!! $product->child_id !!}"
+                                        data-type="deleteChildProduct"
+                                   @endif
+
+
+                                   > <i class="fa fa-remove"></i>
+                                </a>
+
+
+
+
                             </td>
                           </tr>
                         @endforeach
@@ -63,3 +87,6 @@
     </div>
 </div>
 @endsection
+
+
+
