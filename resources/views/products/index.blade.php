@@ -40,10 +40,24 @@
                             <td>{{ $product->title }}</td>
                             <td>{{ $product->unit}}</td>
                             <td>{{ $product->content }}</td>
-                            <td>&euro;  {{ @$product->FormulaPrice }} - {{ @$product->mainPrice }} </td>
+                            <td>
+                                &euro;
+                                @if(!empty($product->FormulaPrice))
+                                    <?= number_format($product->FormulaPrice, 2, '.', ','); ?>
+                                @endif
+                                -
+                                @if(!empty($product->mainPrice))
+                                    @if(strpos($product->mainPrice,'/') || strpos($product->mainPrice,'*'))
+                                        {{ $product->mainPrice }}
+                                    @else
+                                        <?= number_format((float)$product->mainPrice, 2, '.', ','); ?>
+                                    @endif
+                                @endif
+
+                            </td>
                             <td>{{ $product->ean_code }}</td>
-                            <td>{{ $product->supplier_id }}</td>
-                            <td>{{ $product->category_id }}</td>
+                            <td>{{ @$product->supplier_name }}</td>
+                            <td>{{ $product->category_name }}</td>
                             <td class="text-right">
 
                                 <a
@@ -69,9 +83,6 @@
 
                                    > <i class="fa fa-remove"></i>
                                 </a>
-
-
-
 
                             </td>
                           </tr>
