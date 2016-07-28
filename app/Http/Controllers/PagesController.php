@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\View\View;
 
 class PagesController extends Controller
 {
-
     /**
      * method construct
     **/
@@ -16,10 +16,10 @@ class PagesController extends Controller
     {
         $this->middleware('auth');
     }
-
-
+    
     /**
      * method export
+     * @return View
     **/
     public function export()
     {

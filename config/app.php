@@ -149,6 +149,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
 
         /*
@@ -210,7 +211,7 @@ return [
         'Flash' => Laracasts\Flash\Flash::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class
     ],
 
 ];

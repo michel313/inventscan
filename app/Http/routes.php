@@ -11,12 +11,9 @@
 |
 */
 
-
-
 Route::get('/', function () {
     return view('welcome');
 });
-
 
 Route::auth();
 
@@ -26,6 +23,8 @@ Route::get('/404', function () {
 
 
 Route::get('/home', 'HomeController@index');
+
+/* Products & Child Products  Start */
 
 Route::get('products', 'ProductsController@index');
 Route::get('products/new', 'ProductsController@new');
@@ -40,11 +39,12 @@ Route::post('child-product/create','ProductsController@createChild');
 Route::patch('child-product/update','ProductsController@updateChild');
 Route::delete('child-product/{product}', 'ProductsController@destroyChild');
 Route::get('products/{num}/child/{childNum}/edit','ProductsController@editChild');
-
-
 Route::post('child-product/price-formula','ProductsController@priceFormula');
 
+Route::get('products/import/csv','ProductsController@importCsvCreate');
+Route::post('products/import','ProductsController@importCsv');
 
+/* Products & Child Products End */
 
 Route::get('suppliers', 'SuppliersController@index');
 Route::get('suppliers/new', 'SuppliersController@new');

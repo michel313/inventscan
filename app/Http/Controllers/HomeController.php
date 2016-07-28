@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
+     * method __construct
+     * HomeController constructor.
      */
     public function __construct()
     {
@@ -17,9 +18,8 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
+     * method index
+     * @return View
      */
     public function index()
     {

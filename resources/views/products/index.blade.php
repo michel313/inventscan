@@ -8,6 +8,7 @@
       </div>
       <div class="col-md-2">
         <a href="{{ url('/products/new') }}" class="btn btn-primary btn-block btn-h1-spacing btn-">Add new product</a>
+          <a href="{{ url('/products/import/csv') }}" class="btn btn-primary btn-block btn-h1-spacing btn-">Import CSV</a>
       </div>
 
       <div class="col-md-12">
@@ -44,8 +45,9 @@
                                 &euro;
                                 @if(!empty($product->FormulaPrice))
                                     <?= number_format($product->FormulaPrice, 2, '.', ','); ?>
+                                    -
                                 @endif
-                                -
+
                                 @if(!empty($product->mainPrice))
                                     @if(strpos($product->mainPrice,'/') || strpos($product->mainPrice,'*'))
                                         {{ $product->mainPrice }}
@@ -98,6 +100,3 @@
     </div>
 </div>
 @endsection
-
-
-

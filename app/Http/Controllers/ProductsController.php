@@ -13,6 +13,7 @@ use App\ChildProduct;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Maatwebsite\Excel\Excel;
 use Psy\Util\Json;
 
 class ProductsController extends Controller
@@ -48,7 +49,6 @@ class ProductsController extends Controller
                 $product->FormulaPrice = $formulaPrice;
             }
         }
-
 
         return view('products.index', compact('products'));
     }
@@ -155,6 +155,7 @@ class ProductsController extends Controller
     }
     
     /**
+     * method productsChild
      * @param $id
      * @return View
     **/
@@ -167,6 +168,7 @@ class ProductsController extends Controller
     }
 
     /**
+     * method productsChildCreate
      * @param int|bool $id
      * @return \Illuminate\View\
      */
@@ -196,15 +198,23 @@ class ProductsController extends Controller
     }
 
     /**
+     * method createChild
      * @param $request
      * @functionality add in db childProduct new child
      * @return Redirect
     **/
     public function createChild(Request $request){
 
+        $this->validate($request, [
+            'sku'      => 'required|unique:childproducts,sku',
+            'title'    => 'required',
+            'mainPrice'    => 'required',
+            'ean_code' => 'required|unique:childproducts,ean_code'
+        ]);
+
         ChildProduct::create($request->all());
 
-        return redirect('products/');
+        return redirect('products');
     }
 
     /**
@@ -214,7 +224,6 @@ class ProductsController extends Controller
      * @functionality edit part of Child Product
      * @return Redirect
     **/
-
     public function editChild($pr_id = false,$child_id = false){
 
         $selectCats['suppliersList']   = Supplier::all();
@@ -225,8 +234,7 @@ class ProductsController extends Controller
         
         return view('products.child-edit',compact('product','selectCats'));
     }
-
-
+    
     /**
      * method updateChild
      * @param $request
@@ -237,7 +245,8 @@ class ProductsController extends Controller
 
         $this->validate($request, [
             'title'     => 'required',
-            'mainPrice' => 'required'
+            'mainPrice' => 'required',
+            'ean_code'  => 'required'
         ]);
 
         $childID       = $request->input('childID');
@@ -249,7 +258,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * method destroy
+     * method destroyChild
      * @param $request
      * @param $childProduct
      * @return Json
@@ -267,5 +276,46 @@ class ProductsController extends Controller
         }
    
     }
+    
+    /**
+     * method importCsvCreate
+     * @return View
+     */
+    public function importCsvCreate(){
+        return view('products.csv-create');
+    }
+    
+    /**
+     * method importCsv
+     * @param Request $request
+     * @param Excel $excel
+     * @return Redirect
+     */
+    public function importCsv(Request $request,Excel $excel)
+    {
+        if($request->hasFile('import_file_csv')){
 
+            $path       = $request->file('import_file_csv')->getRealPath();
+            $dataCSV    = $excel->load($path, function($reader) {});
+            $dataCSV    = $dataCSV->toArray();
+
+            if(!empty($dataCSV)){
+                foreach ($dataCSV as $key => $value) {
+                    $insertData[] = [
+                        'sku' =>$value['user_name']
+                    ];
+                }
+            }
+
+            if(!empty($insertData)){
+                Product::insert($insertData);
+            }
+
+            return redirect('products/');
+        }else{
+            return redirect('products/import/csv');
+        }
+
+    }
+    
 }
