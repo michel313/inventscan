@@ -15,6 +15,7 @@
   </div>
     <div class="row">
         <div class="col-md-12">
+            @if(count($categories))
             <div class="panel panel-default">
                 <div class="panel-body">
                     <table class="table table-striped">
@@ -33,6 +34,9 @@
                     </table>
                 </div>
             </div>
+            @else
+                <h2 class="no-information"><i>No Information yet</i></h2>
+            @endif
         </div>
     </div>
 </div>

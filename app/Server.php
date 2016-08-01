@@ -18,8 +18,8 @@ class Server extends Model
         'type', 
         'server',
         'username', 
-        'password', '
-        param1',
+        'password',
+        'param1',
         'param2', 
         'param3'
     ];

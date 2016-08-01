@@ -17,6 +17,9 @@ $(function () {
             case 'deleteProduct':
                 sendUrl = 'products';
             break;
+            case 'deleteServer':
+                sendUrl = 'servers';
+            break;
         }
 
         deleteAjax(sendUrl);
@@ -42,12 +45,11 @@ function deleteAjax(url){
 
             if (isConfirm) {
 
-
                 $.ajax({
                     url: base_url+url+'/'+deleteID,
                     type: 'DELETE',
                     dataType: 'json',
-                    data: {product_id: deleteID, _token: token},
+                    data: {deleteID: deleteID, _token: token},
                     success: function(response) {
 
                         if (response.status == 'success') {

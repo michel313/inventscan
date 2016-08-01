@@ -16,7 +16,7 @@
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{!! asset('assets/css/style.css') !!}">
 
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <!-- Sweet Alert -->
     <link rel="stylesheet" type="text/css" href="{!! asset('assets/plugins/sweetalert/dist/sweetalert.css') !!}">
 
@@ -103,6 +103,18 @@
 
     <script src="{!! asset('assets/plugins/sweetalert/dist/sweetalert.min.js') !!}"></script>
     <script src="{!! asset('assets/js/siteAjax.js') !!}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+    <script type="text/javascript">
+        $(function () {
+            $('.csv-part select').select2({
+                maximumSelectionLength: 2,
+                placeholder: "Please Select Row(s)"
+            });
+
+        });
+    </script>
+
 </body>
 </html>

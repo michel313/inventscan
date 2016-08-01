@@ -28,24 +28,14 @@ class ServersController extends Controller
   }
   
   /**
-   * method new
+   * method create
    * @return View
    **/
-  public function new()
+  public function create()
   {
     return view('servers.new');
   }
-  
-  /**
-   * method store
-   * @param $server
-   * @return View
-   **/
-  public function edit(Server $server)
-  {
-    return view('servers.edit', compact('server'));
-  }
-  
+
   /**
    * method store
    * @param $request
@@ -55,11 +45,11 @@ class ServersController extends Controller
   public function store(Request $request, Server $server)
   {
     $this->validate($request, [
-      'location_id' => 'required',
-      'type'        => 'required',
-      'server'      => 'required',
-      'username'    => 'required',
-      'password'    => 'required'
+        'location_id' => 'required',
+        'type'        => 'required',
+        'server'      => 'required',
+        'username'    => 'required',
+        'password'    => 'required'
     ]);
 
     $server->create($request->all());
@@ -68,14 +58,28 @@ class ServersController extends Controller
 
     return redirect('servers');
   }
-  
+
+  /**
+   * method edit
+   * @param $server
+   * @param $id
+   * @return View
+   **/
+  public function edit($id = false,Server $server)
+  {
+    $server = $server->find($id);
+
+    return view('servers.edit', compact('server'));
+  }
+
   /**
    * method update
    * @param $request
    * @param $server
+   * @param $id
    * @return Redirect
   **/
-  public function update(Request $request, Server $server)
+  public function update($id = false,Request $request, Server $server)
   {
     $this->validate($request, [
       'location_id' => 'required',
@@ -84,8 +88,9 @@ class ServersController extends Controller
       'username'    => 'required',
       'password'    => 'required'
     ]);
-    
-    $server->update($request->all());
+
+    $input = $request->except('_method','_token');
+    $server->where('id',$id)->update($input);
 
     flash()->success('Server has been updated successfully');
 
@@ -100,12 +105,22 @@ class ServersController extends Controller
   **/
   public function destroy(Request $request, Server $server)
   {
-    $server->delete();
+    
+    if ($request->ajax()) {
 
-    flash()->success('Server has been removed successfully');
+      $server_id = $request['deleteID'];
+      $result    = $server->find($server_id)->delete();
 
-    return redirect('servers');
+      return response()->json(['status' => 'success']);
+
+      exit;
+
+    }else{
+
+      return redirect('servers');
+
+    }
+
   }
-
 
 }

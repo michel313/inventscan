@@ -11,6 +11,7 @@
                   @include ('partials.form_errors')
                   <form class="" action="/servers/{{ $server->id }}" method="post">
                     {{ method_field('patch') }}
+
                     <div class="form-group">
                       <label for="">Location ID</label>
                       <input type="text" name="location_id" value="{{ $server->location_id }}" class="form-control" required>
@@ -51,13 +52,7 @@
                     </div>
                     {{ csrf_field() }}
                   </form>
-                  <div class="pull-right">
-                    <form class="" action="/servers/{{ $server->id }}" method="post">
-                      {{ method_field('delete') }}
-                      {{ csrf_field() }}
-                      <input type="submit" value="Delete server" class="btn btn-danger">
-                    </form>
-                  </div>
+
                 </div>
             </div>
         </div>

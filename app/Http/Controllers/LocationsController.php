@@ -101,4 +101,5 @@ class LocationsController extends Controller
 
     return redirect('locations');
   }
+  
 }

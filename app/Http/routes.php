@@ -41,8 +41,10 @@ Route::delete('child-product/{product}', 'ProductsController@destroyChild');
 Route::get('products/{num}/child/{childNum}/edit','ProductsController@editChild');
 Route::post('child-product/price-formula','ProductsController@priceFormula');
 
+
 Route::get('products/import/csv','ProductsController@importCsvCreate');
-Route::post('products/import','ProductsController@importCsv');
+Route::post('products/import/csv','ProductsController@importCsv');
+Route::post('products/import/store','ProductsController@importStore');
 
 /* Products & Child Products End */
 
@@ -74,12 +76,9 @@ Route::get('locations/{location}/edit', 'LocationsController@edit');
 Route::patch('locations/{location}', 'LocationsController@update');
 Route::delete('locations/{location}', 'LocationsController@destroy');
 
-Route::get('servers', 'ServersController@index');
-Route::get('servers/new', 'ServersController@new');
-Route::post('servers', 'ServersController@store');
-Route::get('servers/{server}/edit', 'ServersController@edit');
-Route::patch('servers/{server}', 'ServersController@update');
-Route::delete('servers/{server}', 'ServersController@destroy');
+
+
+Route::resource('servers', 'ServersController');
 
 Route::get('export', 'PagesController@export');
 Route::get('search', 'SearchController@search');

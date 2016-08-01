@@ -19,7 +19,7 @@ class CategoriesController extends Controller
   }
   
   /**
-   *  method index
+   * method index
    * @return View
    **/
   public function index()
@@ -29,7 +29,7 @@ class CategoriesController extends Controller
   }
   
   /**
-   *  method new
+   * method new
    * @return View
    **/
   public function new()
@@ -48,10 +48,10 @@ class CategoriesController extends Controller
   }
   
   /**
-   *  method store
-   *  @param $request
-   *  @param $category
-   *  @return Redirect
+   * method store
+   * @param $request
+   * @param $category
+   * @return Redirect
    **/
   public function store(Request $request, Category $category)
   {
@@ -67,7 +67,7 @@ class CategoriesController extends Controller
   }
   
   /**
-   *  method update
+   * method update
    * @param  $request;
    * @param  $category
    * @return View
@@ -87,7 +87,7 @@ class CategoriesController extends Controller
   }
   
   /**
-   *  method destroy
+   * method destroy
    * @param $request
    * @param $category
    * @return Redirect
