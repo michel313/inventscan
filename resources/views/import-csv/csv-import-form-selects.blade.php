@@ -64,7 +64,7 @@
 
     </table>
 
-    <button class=" btn btn-primary">Import Csv</button>
+    <button class="create_import btn btn-primary">Import Csv</button>
 
     {!! Form::close() !!}
 

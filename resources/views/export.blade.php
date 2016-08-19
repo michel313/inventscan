@@ -6,14 +6,14 @@
 
 <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 ">
 
         <h1>Export</h1>
         <hr>
       </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 export-page">
 
             <div class="panel panel-default">
                 <div class="panel-heading">Export products without formula</div>

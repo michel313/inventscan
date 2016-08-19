@@ -27,6 +27,10 @@ $(function () {
 
     $('.import_form').submit(function (e) {
 
+        $('.create_import').prop('disabled',true).prepend('<i class=" animate-spinner  fa fa-spinner" aria-hidden="true"></i>');
+
+
+
         e.preventDefault();
         
         var url = $(this).attr('action');
@@ -34,8 +38,7 @@ $(function () {
         var percent = $('.percent');
         var status = $('#status');
 
-        $('.ajax-errors').removeClass('alert alert-danger');
-        $('.ajax-errors').html('');
+        $('.ajax-errors').removeClass('alert alert-danger').html('');
 
 
         $.ajax({
@@ -61,6 +64,12 @@ $(function () {
 
         });
 
+    })
+
+
+    $('.export-page a').click(function () {
+
+        // $(this).prop('disabled',true).append('<i class=" animate-spinner  fa fa-spinner" aria-hidden="true"></i>');
     })
 
 });
