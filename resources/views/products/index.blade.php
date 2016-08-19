@@ -8,7 +8,7 @@
       </div>
       <div class="col-md-2">
         <a href="{{ url('/products/new') }}" class="btn btn-primary btn-block btn-h1-spacing btn-">Add new product</a>
-          <a href="{{ url('/products/import/csv') }}" class="btn btn-primary btn-block btn-h1-spacing btn-">Import CSV</a>
+          <a href="{{ url('/import/csv') }}" class="btn btn-primary btn-block btn-h1-spacing btn-">Import CSV</a>
       </div>
 
       <div class="col-md-12">
@@ -49,14 +49,13 @@
                                     -
                                 @endif
 
-                                @if(!empty($product->mainPrice))
-                                    @if(strpos($product->mainPrice,'/') || strpos($product->mainPrice,'*'))
-                                        {{ $product->mainPrice }}
+                                @if(!empty($product->price))
+                                    @if(strpos($product->price,'/') || strpos($product->price,'*'))
+                                        {{ $product->price }}
                                     @else
-                                        <?= number_format((float)$product->mainPrice, 2, '.', ','); ?>
+                                        <?= number_format((float)$product->price, 2, '.', ','); ?>
                                     @endif
                                 @endif
-
                             </td>
                             <td>{{ $product->ean_code }}</td>
                             <td>{{ @$product->supplier_name }}</td>
@@ -67,7 +66,7 @@
                                    @if(is_null($product->child_id))
                                         href="/products/{{ $product->product_id }}/edit"
                                    @else
-                                        href="{{ url('/products/'.$product->product_id.'/child/'.$product->child_id.'/edit') }}"
+                                        href="{{ url('/products/child/'.$product->child_id.'/edit') }}"
                                    @endif
                                    class="btn edit-check"> <i class="fa fa-pencil"></i>
                                 </a>
@@ -101,6 +100,7 @@
                 <h2 class="no-information"><i>No Information yet</i></h2>
             @endif
         </div>
+        
     </div>
 </div>
 @endsection

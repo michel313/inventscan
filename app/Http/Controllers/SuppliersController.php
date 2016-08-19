@@ -56,7 +56,8 @@ class SuppliersController extends Controller
   public function store(Request $request, Supplier $supplier)
   {
     $this->validate($request, [
-      'title' => 'required|unique:suppliers,title',
+      'title'     => 'required|unique:suppliers,title',
+      'shortcode' => 'required',
     ]);
 
     $supplier->create($request->all());
@@ -75,7 +76,8 @@ class SuppliersController extends Controller
   public function update(Request $request, Supplier $supplier)
   {
     $this->validate($request, [
-      'title' => 'required|unique:suppliers,title',
+      'title'     => 'required|unique:suppliers,title',
+      'shortcode' => 'required',
     ]);
     
     $supplier->update($request->all());
@@ -99,5 +101,8 @@ class SuppliersController extends Controller
 
     return redirect('suppliers');
   }
+
+
+
 
 }

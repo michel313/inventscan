@@ -56,8 +56,8 @@ class LocationsController extends Controller
   public function store(Request $request, Location $location)
   {
     $this->validate($request, [
-      'location_id' => 'required|unique:locations,location_id',
-      'shorcode'    => 'required',
+      'location_id'  => 'required|unique:locations,location_id',
+      'shortcode'    => 'required',
     ]);
 
     $location->create($request->all());
@@ -77,7 +77,7 @@ class LocationsController extends Controller
   {
     $this->validate($request, [
       'location_id'  => 'required|unique:locations,location_id',
-      'shorcode'     => 'required',
+      'shortcode'     => 'required',
     ]);
     
     $location->update($request->all());

@@ -112,8 +112,7 @@ class ServersController extends Controller
       $result    = $server->find($server_id)->delete();
 
       return response()->json(['status' => 'success']);
-
-      exit;
+      
 
     }else{
 

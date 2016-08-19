@@ -5,29 +5,26 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class ChildProduct
+ * Class MergedTable
  * @package App
  */
-class ChildProduct extends Model
+class RememberedSuppliers extends Model
 {
-    /**
-     * @var array $table
-     */
-    protected $table = 'child_products';
+    protected $table = 'remembered_suppliers';
     /**
      * @var array $fillable
      */
     protected $fillable = [
-        'product_id',
+        'supplier_code',
         'sku',
         'title',
         'unit',
         'content',
-        'mainPrice',
+        'price',
         'ean_code',
         'supplier_id',
         'category_id',
-        'subcategory_id'
+        'subcategory_id',
     ];
 
 }

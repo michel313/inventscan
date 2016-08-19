@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ProductChildMerge;
 use App\Product;
+use App\rememberedSuppliers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Supplier;
@@ -19,8 +20,6 @@ use Psy\Util\Json;
 
 class ProductsController extends Controller
 {
-
-
     /**
      * method construct
      **/
@@ -35,8 +34,9 @@ class ProductsController extends Controller
      **/
     public function index()
     {
-        $products = ProductChildMerge::orderBy('sku')->paginate(5);
 
+        $products = ProductChildMerge::orderBy('sku')->paginate(20);
+            
         foreach ($products as $product) {
 
             $mainProductPrice = Product::where('id', $product->product_id)->get()->pluck('price')->first();
@@ -63,8 +63,8 @@ class ProductsController extends Controller
      **/
     public function edit(Product $product)
     {
-        $selectCats['suppliersList'] = Supplier::all();
-        $selectCats['categoryList'] = Category::all();
+        $selectCats['suppliersList']   = Supplier::all();
+        $selectCats['categoryList']    = Category::all();
         $selectCats['subCategoryList'] = Subcategory::all();
 
         return view('products.edit', compact('product', 'selectCats'));
@@ -76,8 +76,8 @@ class ProductsController extends Controller
      */
     public function new()
     {
-        $selectCats['suppliersList'] = Supplier::all();
-        $selectCats['categoryList'] = Category::all();
+        $selectCats['suppliersList']   = Supplier::all();
+        $selectCats['categoryList']    = Category::all();
         $selectCats['subCategoryList'] = Subcategory::all();
 
         return view('products.new', compact('selectCats'));
@@ -93,9 +93,9 @@ class ProductsController extends Controller
     {
 
         $this->validate($request, [
-            'sku' => 'required|unique:products,sku',
-            'title' => 'required',
-            'price' => 'required',
+            'sku'      => 'required|unique:products,sku',
+            'title'    => 'required',
+            'price'    => 'required',
             'ean_code' => 'required|unique:products,ean_code'
         ]);
 
@@ -115,10 +115,10 @@ class ProductsController extends Controller
     public function update(Request $request, Product $product)
     {
         $this->validate($request, [
-            'sku' => 'required',
-            'title' => 'required',
-            'price' => 'required',
-            'ean_code' => 'required'
+                'sku'      => 'required',
+                'title'    => 'required',
+                'price'    => 'required',
+                'ean_code' => 'required'
         ]);
 
         $product->update($request->all());
@@ -212,10 +212,10 @@ class ProductsController extends Controller
     {
 
         $this->validate($request, [
-            'sku' => 'required|unique:childproducts,sku',
-            'title' => 'required',
-            'mainPrice' => 'required',
-            'ean_code' => 'required|unique:childproducts,ean_code'
+            'sku'      => 'required|unique:child_products,sku',
+            'title'    => 'required',
+            'price'    => 'required',
+            'ean_code' => 'required|unique:child_products,ean_code'
         ]);
 
         ChildProduct::create($request->all());
@@ -230,7 +230,7 @@ class ProductsController extends Controller
      * @functionality edit part of Child Product
      * @return Redirect
      **/
-    public function editChild($pr_id = false, $child_id = false)
+    public function editChild($child_id = false)
     {
 
         $selectCats['suppliersList'] = Supplier::all();
@@ -252,8 +252,8 @@ class ProductsController extends Controller
     {
 
         $this->validate($request, [
-            'title' => 'required',
-            'mainPrice' => 'required',
+            'title'    => 'required',
+            'price'    => 'required',
             'ean_code' => 'required'
         ]);
 
@@ -279,161 +279,12 @@ class ProductsController extends Controller
             $result = $childProduct->find($product_id)->delete();
 
             return response()->json(['status' => 'success']);
-
-            exit;
         }
 
     }
-
-    /**
-     * method importCsvCreate
-     * @return View
-     */
-    public function importCsvCreate()
-    {
-        return view('products.csv-create');
-    }
-
-    /**
-     * method importCsv
-     * @param Request $request
-     * @param Excel $excel
-     * @param $product
-     * @return Redirect
-     */
-    public function importCsv(Request $request, Excel $excel, Product $product)
-    {
-        if ($request->hasFile('import_file_csv')) {
-
-            $file     = $request->file('import_file_csv');
-            $fileName = $file->getClientOriginalName();
-            $path     = $request->file('import_file_csv')->getRealPath();
-            $content  = file_get_contents($path);
-
-            $destinationPath = base_path() . '/public/assets/csv/';
-            $file->move($destinationPath, $fileName);
-
-            $data['fillProducts']  = $product->getFillable();
-            $data['fileName']      = $fileName;
-
-            $lines                 = explode("\n", $content);
-            if(strpos($lines[0],',')) {
-                $data['columnsNames'] = explode(",", $lines[0]);
-            }else if(strpos($lines[0],';')){
-                $data['columnsNames'] = explode(";", $lines[0]);
-            }
-
-            return view('products.csv-create',compact('data'));
-
-        } else {
-            return redirect('products/import/csv');
-        }
-
-    }
-
-    /**
-     * method importCsvDB
-     * @param $request
-     * @param $product
-     * @return  Redirect
-     */
-    public function importStore(Request $request,Product $product){
-
-        $row          = [];
-        $columnsNames = [];
-        $insertData   = [];
-        $path         = base_path() . '/public/assets/csv/'.$request['fileName'];
-        $content      = file_get_contents($path);
-        $lines        = explode("\n", $content);
-
-        for ($i = 1; $i < sizeof($lines); $i++)
-        {
-            if(strpos($lines[0],',')) {
-                $line = explode(",",$lines[$i]);
-                if(count($line) > 1) {
-                    $row[] = explode(",", $lines[$i]);
-                }
-            }else if(strpos($lines[0],';')){
-                $line = explode(";",$lines[$i]);
-                if(count($line) > 1){
-                    $row[] = explode(";",$lines[$i]);
-                }
-            }
-        }
-
-        if(strpos($lines[0],',')) {
-            $columnsNames = explode(",", $lines[0]);
-        }else if(strpos($lines[0],';')){
-            $columnsNames = explode(";", $lines[0]);
-        }
-
-        $skuPrefix = strtoupper(substr($columnsNames[0],0,2));
-        $data      = $request->except('_method','_token','fileName', 'import_file_csv');
-
-        for ($i =0;$i < sizeof($row);$i++){
-
-            foreach ($data as $key => $v) {
-
-                if(sizeof($v) == 2){
-
-                    $insertData[$i][$key]=$row[$i][$v[0]].$row[$i][$v[1]];
-
-                }else if(sizeof($v) == 1){
-
-                    if($key == 'sku'){
-
-                        $insertData[$i][$key] = $skuPrefix.$row[$i][$v[0]];
-
-                    }else{
-
-                        $insertData[$i][$key] = $row[$i][$v[0]];
-
-                    }
-                }
-            }
-        }
-
-        $i = 0;
-
-        foreach ($insertData as $value){
-
-            if($i < 5){
-                $product->create($value);
-            }
-
-            $i++;
-        }
-
-
-        unlink($path);
-
-        return redirect('products');
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     
+   
+
+
 }

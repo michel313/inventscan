@@ -38,15 +38,22 @@ Route::get('products/{num}/child/create','ProductsController@productsChildCreate
 Route::post('child-product/create','ProductsController@createChild');
 Route::patch('child-product/update','ProductsController@updateChild');
 Route::delete('child-product/{product}', 'ProductsController@destroyChild');
-Route::get('products/{num}/child/{childNum}/edit','ProductsController@editChild');
+Route::get('products/child/{childNum}/edit','ProductsController@editChild');
 Route::post('child-product/price-formula','ProductsController@priceFormula');
 
 
-Route::get('products/import/csv','ProductsController@importCsvCreate');
-Route::post('products/import/csv','ProductsController@importCsv');
-Route::post('products/import/store','ProductsController@importStore');
-
 /* Products & Child Products End */
+
+/* Export Products Start */
+
+Route::get('export/product/{formula?}/{server?}','ExportController@exportProductFormula');
+Route::get('export/locations/{server?}','ExportController@exportLocations');
+Route::get('export/servers/{server?}','ExportController@exportServers');
+
+
+/* Export Products End */
+
+
 
 Route::get('suppliers', 'SuppliersController@index');
 Route::get('suppliers/new', 'SuppliersController@new');
@@ -54,6 +61,14 @@ Route::post('suppliers', 'SuppliersController@store');
 Route::get('suppliers/{supplier}/edit', 'SuppliersController@edit');
 Route::patch('suppliers/{supplier}', 'SuppliersController@update');
 Route::delete('suppliers/{supplier}', 'SuppliersController@destroy');
+
+Route::get('supplier/{num}/import/csv','ImportController@importCsvCreate');
+Route::post('supplier/{num}/import/csv','ImportController@importCsv');
+Route::post('supplier/import/csv','ImportController@importCsv');
+Route::post('import/store','ImportController@importStore');
+
+Route::get('import/csv','ImportController@importCreate');
+
 
 Route::get('categories', 'CategoriesController@index');
 Route::get('categories/new', 'CategoriesController@new');

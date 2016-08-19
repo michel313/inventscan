@@ -23,13 +23,29 @@
                         <tr>
                           <th>Title</th>
                           <th>Shortcode</th>
+                          <th>CSV</th>
+                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
                         @foreach ($suppliers as $supplier)
                           <tr>
-                            <td><a href="/suppliers/{{ $supplier->id}}/edit">{{ $supplier->title }}</a></td>
+                            <td>{{ $supplier->title }}</td>
                             <td>{{ $supplier->shortcode }}</td>
+                            <td><a href="{{url('supplier/'.$supplier->id.'/import/csv')}}">Import CSV</a> </td>
+                              <td class="text-right">
+
+                                  <a href="/suppliers/{{ $supplier->id}}/edit" class="btn edit-check"> <i class="fa fa-pencil"></i>
+                                  </a>
+
+                                  <a href="javascript:void(0)" class="btn remove-cancel  deleteAjax"
+                                     data-token="{{ csrf_token() }}"
+                                     data-type="deleteSupplier"
+                                     data-id="{!! $supplier->id !!}">
+                                      <i class="fa fa-remove"></i>
+                                  </a>
+
+                              </td>
                           </tr>
                         @endforeach
                       </tbody>

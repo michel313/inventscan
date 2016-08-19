@@ -20,25 +20,15 @@
         <input type="text" name="content" value="{{ old('content') }}" class="form-control" id="pr-content">
     </div>
 
-    @if(!empty($mainProduct))
-        <div class="form-group">
-            <label for="pr-price">Prijs</label>
-            <div class="input-group">
-                <div class="input-group-addon">&euro;</div>
-                <input type="text" name="price" value="{{ old('price') }}" class="form-control" id="pr-price" required>
-            </div>
-        </div>
-    @endif
 
-    @if(!empty($childProduct))
-        <div class="form-group">
-            <label for="pr-price">Main Prijs</label>
-            <div class="input-group">
-                <div class="input-group-addon">&euro;</div>
-                <input type="text" name="mainPrice" value="{{ old('mainPrice') }}" class="form-control" id="pr-price" required>
-            </div>
+    <div class="form-group">
+        <label for="pr-price">Prijs</label>
+        <div class="input-group">
+            <div class="input-group-addon">&euro;</div>
+            <input type="text" name="price" value="{{ old('price') }}" class="form-control" id="pr-price" required>
         </div>
-    @endif
+    </div>
+
 
     <div class="form-group">
         <label for="pr-ean_code">EAN Code</label>

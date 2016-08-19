@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChildProducts extends Migration
+class RememberedSuppliers extends Migration
 {
     /**
      * Run the migrations.
@@ -12,21 +12,19 @@ class ChildProducts extends Migration
      */
     public function up()
     {
-        Schema::create('childProducts', function (Blueprint $table) {
-
+        Schema::create('remembered_suppliers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id')->unsigned();
-            $table->foreign('product_id')
-                ->references('id')->on('products')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
             $table->string('sku');
             $table->string('title');
             $table->string('unit');
             $table->string('content');
-            $table->string('mainPrice');
+            $table->string('price');
             $table->string('ean_code');
-            $table->integer('supplier_id')->unsigned()->index();
+            $table->integer('supplier_id')->unsigned();
+            $table->foreign('supplier_id')
+                ->references('id')->on('suppliers')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->integer('category_id')->unsigned()->index();
             $table->integer('subcategory_id')->unsigned()->index();
             $table->timestamps();
@@ -40,6 +38,6 @@ class ChildProducts extends Migration
      */
     public function down()
     {
-        Schema::drop('childProducts');
+        Schema::drop('remembered_suppliers');
     }
 }

@@ -1,6 +1,6 @@
 $(function () {
 
-       base_url = location.origin+'/';
+    base_url = location.origin+'/';
 
     $('.deleteAjax').click(function () {
         
@@ -25,6 +25,43 @@ $(function () {
         deleteAjax(sendUrl);
     });
 
+    $('.import_form').submit(function (e) {
+
+        e.preventDefault();
+        
+        var url = $(this).attr('action');
+        var bar = $('.bar');
+        var percent = $('.percent');
+        var status = $('#status');
+
+        $('.ajax-errors').removeClass('alert alert-danger');
+        $('.ajax-errors').html('');
+
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'JSON',
+            data: $(this).serialize(),
+            success: function(response) {
+                if (response.status == 'success') {
+                    window.location.href = base_url+'products';
+                }
+            },
+            error: function(data){
+                var errors = data.responseJSON;
+                var div    = $('.ajax-errors').addClass('alert alert-danger').append('<ul></ul>');
+
+                $.each(errors, function(element, error) {
+
+                    div.append('<li>'+error+'</li>');
+
+                });
+            }
+
+        });
+
+    })
 
 });
 
@@ -69,3 +106,42 @@ function deleteAjax(url){
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
