@@ -36,23 +36,43 @@ class ProductsController extends Controller
     {
 
         $products = ProductChildMerge::orderBy('sku')->paginate(20);
-            
-        foreach ($products as $product) {
 
-            $mainProductPrice = Product::where('id', $product->product_id)->get()->pluck('price')->first();
+        foreach ($products as $key=>$product) {
 
-            if (strpos($product->mainPrice, '/')) {
-                $quantity = explode('/', $product->mainPrice);
-                $formulaPrice = (float)$mainProductPrice / (float)$quantity[1];
-                $product->FormulaPrice = $formulaPrice;
 
-            } else if (strpos($product->mainPrice, '*')) {
-                $quantity = explode('*', $product->mainPrice);
-                $formulaPrice = (float)$mainProductPrice * (float)$quantity[1];
-                $product->FormulaPrice = $formulaPrice;
+            if(strpos($product->sku,'.')){
+
+                $sku = explode('.',$product->sku);
+
+                $mainProductPrice = Product::where('sku',$sku[0])->get()->pluck('price')->first();
+
+            }else{
+                $mainProductPrice = Product::where('id', $product->product_id)->get()->pluck('price')->first();
             }
-        }
 
+
+            if (strpos($product->childPrice, '/')) {
+
+                $quantity = explode('/', $product->childPrice);
+                $formulaPrice = (float)$mainProductPrice / (float)$quantity[1];
+                $products[$key]->childPriceForm = $formulaPrice;
+
+
+                
+            } else if (strpos($product->childPrice, '*')) {
+
+                $quantity = explode('*', $product->childPrice);
+                $formulaPrice = (float)$mainProductPrice * (float)$quantity[1];
+                $products[$key]->childPriceForm = $formulaPrice;
+
+            }else{
+
+                $products[$key]->childPriceForm = $mainProductPrice;
+
+            }
+
+        }
+        
         return view('products.index', compact('products'));
     }
 
@@ -197,7 +217,7 @@ class ProductsController extends Controller
         }
 
         $productInfo['childCount'] = ChildProduct::where('sku', $sku)->count();
-        
+
         if (!empty($productChildLast->sku)) {
             $getChildNumber = explode('.', $productChildLast->sku)['1'];
         }
@@ -248,7 +268,6 @@ class ProductsController extends Controller
         $selectCats['suppliersList'] = Supplier::all();
         $selectCats['categoryList'] = Category::all();
         $selectCats['subCategoryList'] = Subcategory::all();
-
 
         $product = ChildProduct::find($child_id);
 

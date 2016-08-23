@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->string('unit');
             $table->string('content');
-            $table->decimal('price', 8, 2);
+            $table->string('price');
             $table->string('ean_code');
             $table->integer('supplier_id')->unsigned()->index();
             $table->integer('category_id')->unsigned()->index();

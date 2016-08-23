@@ -177,7 +177,7 @@
       </column>
       <column id="53" parent="7" name="price">
         <mandatory>1</mandatory>
-        <data-type>decimal(8,2)</data-type>
+        <data-type>varchar(255)</data-type>
       </column>
       <column id="54" parent="7" name="ean_code">
         <mandatory>1</mandatory>

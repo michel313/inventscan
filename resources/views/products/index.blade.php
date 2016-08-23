@@ -44,18 +44,20 @@
                             <td>{{ $product->content }}</td>
                             <td>
                                 &euro;
-                                @if(!empty($product->FormulaPrice))
-                                    <?= number_format($product->FormulaPrice, 2, '.', ','); ?>
-                                    -
-                                @endif
 
-                                @if(!empty($product->price))
-                                    @if(strpos($product->price,'/') || strpos($product->price,'*'))
-                                        {{ $product->price }}
-                                    @else
-                                        <?= number_format((float)$product->price, 2, '.', ','); ?>
+                                @if(!is_null($product->childPrice))
+                                    {{$product->childPrice.'->'.number_format((float)$product->childPriceForm , 2, '.', ',')}}
+                                @else
+
+                                    @if(!empty($product->price))
+                                        @if(strpos($product->price,'/') || strpos($product->price,'*'))
+                                            {{ $product->price }}
+                                        @else
+                                            <?= number_format((float)$product->price, 2, '.', ','); ?>
+                                        @endif
                                     @endif
                                 @endif
+
                             </td>
                             <td>{{ $product->ean_code }}</td>
                             <td>{{ @$product->supplier_name }}</td>
