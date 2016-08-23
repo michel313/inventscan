@@ -82,8 +82,8 @@ function deleteAjax(url){
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Yes, delete it!",
-            cancelButtonText: "No, cancel plx!",
+            confirmButtonText: "Yes",
+            cancelButtonText: "No",
             closeOnConfirm: false,
             closeOnCancel: false
         },

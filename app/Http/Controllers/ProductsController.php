@@ -173,20 +173,31 @@ class ProductsController extends Controller
 
     /**
      * method productsChildCreate
-     * @param int|bool $id
+     * @param int|bool $sku
      * @return \Illuminate\View\
      */
-    public function productsChildCreate($id = false)
+    public function productsChildCreate($sku = false,ChildProduct $childProduct)
     {
 
         $selectCats['suppliersList'] = Supplier::all();
         $selectCats['categoryList'] = Category::all();
         $selectCats['subCategoryList'] = Subcategory::all();
 
-        $productInfo = Product::find($id);
-        $productChildLast = ChildProduct::orderBy('id', 'desc')->where('product_id', $id)->first();
-        $productInfo['childCount'] = ChildProduct::where('product_id', $id)->count();
+        $productInfo = Product::where('sku',$sku)->first();
 
+        if(count($productInfo)){
+            $productInfo = $productInfo->toArray();
+        }
+
+        $productChild= DB::select(DB::raw("SELECT * FROM ".$childProduct->getTable()." WHERE SUBSTRING_INDEX(`sku`,'.',1) = '{$sku}' ORDER BY id DESC"));
+
+
+        if(count($productChild)){
+            $productChildLast = $productChild[0];
+        }
+
+        $productInfo['childCount'] = ChildProduct::where('sku', $sku)->count();
+        
         if (!empty($productChildLast->sku)) {
             $getChildNumber = explode('.', $productChildLast->sku)['1'];
         }
@@ -218,6 +229,7 @@ class ProductsController extends Controller
             'ean_code' => 'required|unique:child_products,ean_code'
         ]);
 
+
         ChildProduct::create($request->all());
 
         return redirect('products');
@@ -236,6 +248,7 @@ class ProductsController extends Controller
         $selectCats['suppliersList'] = Supplier::all();
         $selectCats['categoryList'] = Category::all();
         $selectCats['subCategoryList'] = Subcategory::all();
+
 
         $product = ChildProduct::find($child_id);
 
@@ -256,9 +269,9 @@ class ProductsController extends Controller
             'price'    => 'required',
             'ean_code' => 'required'
         ]);
-
+        
         $childID = $request->input('childID');
-        $input   = $request->except('_method', '_token', 'childID', 'mainProductID', 'sku');
+        $input   = $request->except('_method', '_token', 'childID', 'sku');
         $childProduct->where('id', $childID)->update($input);
 
         return redirect('products/');

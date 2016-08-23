@@ -13,6 +13,7 @@
     <input type="text" name="unit" value="{{ $product->unit }}" class="form-control">
 </div>
 <div class="form-group">
+<div class="form-group">
     <label for="">Inhoud <small>(optional)</small></label>
     <input type="text" name="content" value="{{ $product->content }}" class="form-control">
 </div>
@@ -23,7 +24,7 @@
     <label for="mainPrice"> Prijs</label>
     <div class="input-group">
         <div class="input-group-addon">&euro;</div>
-        <input type="text" name="price" value="{{ $product->mainPrice }}" class="form-control" id="mainPrice" required>
+        <input type="text" name="price" value="{{ $product->price }}" class="form-control" id="mainPrice" required>
     </div>
 </div>
 

@@ -23,7 +23,7 @@ class ChildProduct extends Model
         'title',
         'unit',
         'content',
-        'mainPrice',
+        'price',
         'ean_code',
         'supplier_id',
         'category_id',

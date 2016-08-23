@@ -33,14 +33,13 @@ Route::get('products/{product}/edit', 'ProductsController@edit');
 Route::patch('products/{product}', 'ProductsController@update');
 Route::delete('products/{product}', 'ProductsController@destroy');
 
-Route::get('products/{num}/child','ProductsController@productsChild')->where('num', '[0-9]+');
-Route::get('products/{num}/child/create','ProductsController@productsChildCreate')->where('num', '[0-9]+');
+Route::get('products/{num}/child','ProductsController@productsChild');
+Route::get('products/{sku}/child/create','ProductsController@productsChildCreate');
 Route::post('child-product/create','ProductsController@createChild');
 Route::patch('child-product/update','ProductsController@updateChild');
 Route::delete('child-product/{product}', 'ProductsController@destroyChild');
 Route::get('products/child/{childNum}/edit','ProductsController@editChild');
 Route::post('child-product/price-formula','ProductsController@priceFormula');
-
 
 /* Products & Child Products End */
 
@@ -49,7 +48,6 @@ Route::post('child-product/price-formula','ProductsController@priceFormula');
 Route::get('export/product/{formula?}/{server?}','ExportController@exportProductFormula');
 Route::get('export/locations/{server?}','ExportController@exportLocations');
 Route::get('export/servers/{server?}','ExportController@exportServers');
-
 
 /* Export Products End */
 
