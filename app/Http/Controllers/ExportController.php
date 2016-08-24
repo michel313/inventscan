@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\ChildProduct;
-use App\Http\Requests;
+use App\ExportPaths;
 use App\Location;
 use App\Product;
 use App\Server;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests;
+use Illuminate\View\View;
 
 
 class ExportController extends Controller
@@ -47,14 +50,8 @@ class ExportController extends Controller
         $childFormulaProducts      = [];
         $childExcelWithoutFormulas = [];
 
-        $childProducts = ChildProduct::join('suppliers','child_products.supplier_id', '=' ,'suppliers.id')
-                                               ->join('categories','child_products.category_id','=','categories.id')
-                                               ->select('child_products.*','suppliers.title as supplier_title','categories.title as category_title')->get();
-
-
-        $products      = Product::join('suppliers','products.supplier_id', '=' ,'suppliers.id')
-                                               ->join('categories','products.category_id','=','categories.id')
-                                               ->select('products.*','suppliers.title as supplier_title','categories.title as category_title')->get();
+        $childProducts = ChildProduct::getChildAll();
+        $products      = Product::getAllProducts();
 
         if(count($childProducts)){
             $childProducts = $childProducts->toArray();
@@ -65,9 +62,10 @@ class ExportController extends Controller
         }
 
 
+
         if(empty($products) && empty($childProducts)){
 
-            flash()->error('There are no Locations to export');
+            flash()->error('There are no Products to export');
 
             return redirect()->back();
         }
@@ -122,13 +120,14 @@ class ExportController extends Controller
 
         $excelProductAll = array_merge($products,$childFormulaProducts,$childExcelWithoutFormulas);
 
+
         switch ($server) {
 
             case false:
 
                 \Excel::create('product-'.Carbon::now()->toDateString(), function ($excel) use ($excelProductAll) {
                     $excel->sheet('Sheet', function ($sheet) use ($excelProductAll) {
-                        $sheet->loadView('export.products-formula', ['products' => $excelProductAll]);
+                        $sheet->loadView('export-csv.products-formula', ['products' => $excelProductAll]);
                     });
                 })->export('xls');
 
@@ -138,7 +137,7 @@ class ExportController extends Controller
 
                 \Excel::create('product-'.$this->currentDate(), function ($excel) use ($excelProductAll) {
                     $excel->sheet('Sheet', function ($sheet) use ($excelProductAll) {
-                        $sheet->loadView('export.products-formula', ['products' => $excelProductAll]);
+                        $sheet->loadView('export-csv.products-formula', ['products' => $excelProductAll]);
                     });
                 })->store('csv', public_path('assets/exports'));
 
@@ -173,7 +172,7 @@ class ExportController extends Controller
                 case false:
                         \Excel::create('location-'.Carbon::now()->toDateString(), function($excel) use ($locations)  {
                             $excel->sheet('Sheet', function($sheet) use ($locations) {
-                                $sheet->loadView('export.locations',['locations' => $locations]);
+                                $sheet->loadView('export-csv.locations',['locations' => $locations]);
                             });
                         })->download('xls');
                     break;
@@ -182,7 +181,7 @@ class ExportController extends Controller
 
                     \Excel::create('location'.$this->currentDate(), function($excel) use ($locations)  {
                         $excel->sheet('Sheet', function($sheet) use ($locations) {
-                            $sheet->loadView('export.locations',['locations' => $locations]);
+                            $sheet->loadView('export-csv.locations',['locations' => $locations]);
                         });
                     })->store('csv', public_path('assets/exports'));
 
@@ -223,7 +222,7 @@ class ExportController extends Controller
 
                     \Excel::create('servers-'.Carbon::now()->toDateString(), function($excel) use ($servers)  {
                         $excel->sheet('Sheet', function($sheet) use ($servers) {
-                            $sheet->loadView('export.servers',['servers' => $servers]);
+                            $sheet->loadView('export-csv.servers',['servers' => $servers]);
                         });
                     })->download('xls');
 
@@ -233,7 +232,7 @@ class ExportController extends Controller
 
                     \Excel::create('servers'.$this->currentDate(), function($excel) use ($servers)  {
                         $excel->sheet('Sheet', function($sheet) use ($servers) {
-                            $sheet->loadView('export.servers',['servers' => $servers]);
+                            $sheet->loadView('export-csv.servers',['servers' => $servers]);
                         });
                     })->store('csv', public_path('assets/exports'));
 
@@ -254,4 +253,105 @@ class ExportController extends Controller
 
     }
     
+    /**
+     * method exportIndex
+     * @param $exportPaths
+     * @return View;
+     **/
+    public function exportIndex(ExportPaths $exportPaths){
+        
+        $paths = $exportPaths->all();
+        
+        return view('export.index',compact('paths'));
+    }
+    
+    /**
+     * method exportCreate
+     * @return View;
+     */
+    public function exportCreate(){
+        return view('export.create');
+    }
+
+    /**
+     * @param Request $request
+     * @param ExportPaths $exportPaths
+     * @return Redirect
+     */
+    public function exportStore(Request $request,ExportPaths $exportPaths){
+
+        $this->validate($request, [
+            'path' => 'required',
+        ]);
+
+        $exportPaths->create($request->all());
+
+        return redirect('/export-path');
+
+    }
+
+    /**
+     * method updateExport
+     * @param int $id
+     * @param ExportPaths $exportPaths
+     * @return View
+     */
+    public function exportEdit(ExportPaths $exportPaths,$id){
+
+        $path = $exportPaths->find($id);
+
+        if(is_null($path)){
+            return redirect('export-path');
+        }
+
+        return view('export.edit',compact('path'));
+    }
+
+
+    /**
+     * method updateExport
+     * @param int $id
+     * @param ExportPaths $exportPaths
+     * @param Request $request
+     * @return View
+     */
+    public function updateEdit(ExportPaths $exportPaths,Request $request,$id){
+
+        $this->validate($request, [
+            'path' => 'required',
+        ]);
+
+        $path = [
+          'path' =>  $request['path']
+        ];
+
+        $exportPaths->where('id',$id)->update($path);
+
+        return redirect('export-path');
+    }
+
+    /**
+     * method destroy
+     * @param $request
+     * @param $id
+     * @param $exportPaths
+     * @return resource
+     */
+    public function exportDestroy(Request $request,ExportPaths $exportPaths,$id){
+
+        if ($request->ajax()) {
+
+            $pathID = $request['deleteID'];
+            $exportPaths->find($pathID)->delete();
+
+            return response()->json(['status' => 'success']);
+
+        } else {
+
+
+            return redirect('export-path');
+
+        }
+    }
+
 }

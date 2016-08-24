@@ -4,17 +4,14 @@ namespace App\Http\Controllers;
 
 use App\ProductChildMerge;
 use App\Product;
-use App\rememberedSuppliers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Supplier;
 use App\Category;
 use App\Subcategory;
 use App\ChildProduct;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-use Maatwebsite\Excel\Excel;
 use Psy\Util\Json;
 
 
@@ -209,19 +206,19 @@ class ProductsController extends Controller
             $productInfo = $productInfo->toArray();
         }
 
-        $productChild= DB::select(DB::raw("SELECT * FROM ".$childProduct->getTable()." WHERE SUBSTRING_INDEX(`sku`,'.',1) = '{$sku}' ORDER BY id DESC"));
-
+        $productChild = $childProduct->productChild($sku);
 
         if(count($productChild)){
+            
             $productChildLast = $productChild[0];
+
+            if (!empty($productChildLast->sku)) {
+                $getChildNumber = explode('.', $productChildLast->sku)['1'];
+            }
         }
 
         $productInfo['childCount'] = ChildProduct::where('sku', $sku)->count();
-
-        if (!empty($productChildLast->sku)) {
-            $getChildNumber = explode('.', $productChildLast->sku)['1'];
-        }
-
+        
         if (empty($getChildNumber)) {
             $getChildNumber = 1;
         } else {
@@ -265,8 +262,8 @@ class ProductsController extends Controller
     public function editChild($child_id = false)
     {
 
-        $selectCats['suppliersList'] = Supplier::all();
-        $selectCats['categoryList'] = Category::all();
+        $selectCats['suppliersList']   = Supplier::all();
+        $selectCats['categoryList']    = Category::all();
         $selectCats['subCategoryList'] = Subcategory::all();
 
         $product = ChildProduct::find($child_id);

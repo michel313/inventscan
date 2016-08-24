@@ -22,16 +22,6 @@
     <option name="SORT_POSITIONED" value="false" />
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - invetscan@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -39,69 +29,124 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ExportController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ExportController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ExportController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1377">
-              <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+            <state relative-caret-position="387">
+              <caret line="324" column="37" selection-start-line="324" selection-start-column="37" selection-end-line="324" selection-end-column="37" />
               <folding>
-                <element signature="e#325#401#0#PHP" expanded="false" />
-                <element signature="e#471#635#0#PHP" expanded="false" />
-                <element signature="e#4711#6052#0#PHP" expanded="false" />
-                <element signature="e#4879#5918#0#PHP" expanded="false" />
-                <element signature="e#6148#7438#0#PHP" expanded="false" />
-                <marker date="1471618450375" expanded="true" signature="2349:2350" placeholder="SELECT child... child_products" />
+                <element signature="e#40#61#0#PHP" expanded="true" />
+                <element signature="e#401#477#0#PHP" expanded="false" />
+                <element signature="e#547#711#0#PHP" expanded="false" />
+                <element signature="e#831#4063#0#PHP" expanded="false" />
+                <element signature="e#4161#5510#0#PHP" expanded="false" />
+                <element signature="e#5606#6904#0#PHP" expanded="false" />
+                <marker date="1472051807433" expanded="true" signature="1790:1791" placeholder="SELECT child... child_products" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductsController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductsController.php">
+      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/suppliers/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
-              <folding>
-                <element signature="e#3813#4285#0#PHP" expanded="false" />
-                <element signature="e#4374#4626#0#PHP" expanded="false" />
-                <element signature="e#6068#6469#0#PHP" expanded="false" />
-                <element signature="e#7121#7602#0#PHP" expanded="false" />
-                <element signature="e#7723#8030#0#PHP" expanded="false" />
-                <marker date="1471962627404" expanded="true" signature="969:970" placeholder="SELECT * FRO... child_products" />
-                <marker date="1471962627404" expanded="true" signature="1868:1942" placeholder="/** * method... " />
-                <marker date="1471962627404" expanded="true" signature="5200:5306" placeholder="SELECT * FRO... ${$childProduct-&gt;getTable()}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/products/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="591">
-              <caret line="70" column="90" selection-start-line="70" selection-start-column="82" selection-end-line="70" selection-end-column="90" />
+            <state relative-caret-position="323">
+              <caret line="19" column="68" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="invetscan.getProdChild" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
+      <file leaf-file-name="new.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/servers/new.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/export/edit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="79" selection-start-line="13" selection-start-column="79" selection-end-line="13" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/export/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="siteAjax.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/siteAjax.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/servers/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="45" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="155" column="7" selection-start-line="155" selection-start-column="7" selection-end-line="172" selection-end-column="9" />
               <folding>
-                <marker date="0" expanded="true" signature="49:1310" placeholder="CREATE DEFIN... getProdChild" />
+                <element signature="e#394#470#0#PHP" expanded="false" />
+                <element signature="e#533#1769#0#PHP" expanded="false" />
+                <element signature="e#1854#2154#0#PHP" expanded="false" />
+                <element signature="e#2214#2485#0#PHP" expanded="false" />
+                <element signature="e#2598#3060#0#PHP" expanded="false" />
+                <element signature="e#3174#3609#0#PHP" expanded="false" />
+                <element signature="e#4281#4533#0#PHP" expanded="false" />
+                <element signature="e#4650#5761#0#PHP" expanded="false" />
+                <element signature="e#5912#6313#0#PHP" expanded="false" />
+                <element signature="e#6482#6846#0#PHP" expanded="false" />
+                <element signature="e#6970#7451#0#PHP" expanded="false" />
+                <element signature="e#7572#7879#0#PHP" expanded="false" />
+                <marker date="1472022795464" expanded="true" signature="876:877" placeholder="SELECT * FRO... child_products" />
+                <marker date="1472022795464" expanded="true" signature="1775:1849" placeholder="/** * method... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console_47.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7561461d-a55a-47d3-92a2-12c3fa3f392f/console_47.sql">
+      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/export/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
+            <state relative-caret-position="272">
+              <caret line="16" column="101" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -123,14 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/products/forms/create-product-child.blade.php" />
-        <option value="$PROJECT_DIR$/public/index.php" />
-        <option value="$PROJECT_DIR$/resources/views/export/products-normal.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/export/products-without-formula.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2016_08_16_012457_create_child_products.php" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/7561461d-a55a-47d3-92a2-12c3fa3f392f/console_32.sql" />
-        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/helpers.php" />
-        <option value="$PROJECT_DIR$/resources/views/export/location.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/export/locations.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/export/servers.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LocationsController.php" />
@@ -141,17 +178,12 @@
         <option value="$PROJECT_DIR$/resources/views/export/products-formula.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/import-csv/csv-create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/import-csv/csv-import-form-selects.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/export.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ExportController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/products/child-create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/products/child-edit.blade.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/7561461d-a55a-47d3-92a2-12c3fa3f392f/console_33.sql" />
         <option value="$PROJECT_DIR$/resources/views/products/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/products/forms/edit-product-child.blade.php" />
-        <option value="$PROJECT_DIR$/app/ChildProduct.php" />
-        <option value="$PROJECT_DIR$/public/assets/js/siteAjax.js" />
         <option value="$PROJECT_DIR$/database/migrations/2016_07_15_105637_create_products_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_08_23_112100_create_products_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_07_15_112100_create_products_table.php" />
@@ -174,6 +206,19 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/7561461d-a55a-47d3-92a2-12c3fa3f392f/console_49.sql" />
         <option value="dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProductsController.php" />
+        <option value="$PROJECT_DIR$/app/ChildProduct.php" />
+        <option value="$PROJECT_DIR$/app/Product.php" />
+        <option value="$PROJECT_DIR$/resources/export/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/export.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_08_24_134323_create_export_path.php" />
+        <option value="$PROJECT_DIR$/app/ExportPaths.php" />
+        <option value="$PROJECT_DIR$/resources/views/export/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/servers/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/export/index.blade.php" />
+        <option value="$PROJECT_DIR$/public/assets/js/siteAjax.js" />
+        <option value="$PROJECT_DIR$/resources/views/export/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ExportController.php" />
       </list>
     </option>
   </component>
@@ -195,7 +240,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1378" />
+    <option name="width" value="1370" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -223,6 +268,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -278,7 +324,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="products" />
+              <option name="myItemId" value="suppliers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -295,18 +341,12 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="inventscan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inventscan" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
+              <option name="myItemId" value="servers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -320,7 +360,29 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="export" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inventscan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inventscan" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -380,34 +442,33 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="C:/xampp/htdocs/codeigtest" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/GeoApi" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="SearchEverywhereHistoryKey" value="si&#9;FILE&#9;file://C:/php7/htdocs/inventscan/public/assets/js/siteAjax.js&#10;site&#9;FILE&#9;file://C:/php7/htdocs/inventscan/public/assets/js/siteAjax.js&#10;aja&#9;FILE&#9;file://C:/php7/htdocs/inventscan/public/assets/js/siteAjax.js&#10;sty&#9;FILE&#9;file://C:/php7/htdocs/inventscan/public/assets/css/style.css&#10;style&#9;FILE&#9;file://C:/php7/htdocs/inventscan/public/assets/css/style.css" />
+    <property name="SearchEverywhereHistoryKey" value="site&#9;FILE&#9;file://C:/php7/htdocs/inventscan/public/assets/js/siteAjax.js&#10;si&#9;FILE&#9;file://C:/php7/htdocs/inventscan/public/assets/js/siteAjax.js&#10;aja&#9;FILE&#9;file://C:/php7/htdocs/inventscan/public/assets/js/siteAjax.js&#10;sty&#9;FILE&#9;file://C:/php7/htdocs/inventscan/public/assets/css/style.css&#10;style&#9;FILE&#9;file://C:/php7/htdocs/inventscan/public/assets/css/style.css" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\php7\htdocs\inventscan\resources\views" />
+      <recent name="C:\php7\htdocs\inventscan\resources\views\importCSV" />
+      <recent name="C:\php7\htdocs\inventscan\app" />
+      <recent name="C:\php7\htdocs\inventscan\app\Models" />
+      <recent name="C:\php7\htdocs\inventscan\resources\views\products\forms" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\php7\htdocs\inventscan\public\assets\images" />
       <recent name="C:\php7\htdocs\inventscan\public\assets\plugins\ajax-progress" />
       <recent name="C:\php7\htdocs\inventscan\public\assets" />
       <recent name="C:\xampp\htdocs\inventscan" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\php7\htdocs\inventscan\resources\views\importCSV" />
-      <recent name="C:\php7\htdocs\inventscan\app" />
-      <recent name="C:\php7\htdocs\inventscan\app\Models" />
-      <recent name="C:\php7\htdocs\inventscan\resources\views\products\forms" />
-      <recent name="C:\php7\htdocs\inventscan\public\assets\js" />
     </key>
   </component>
   <component name="RunManager">
@@ -511,12 +572,15 @@
       <workItem from="1471855842974" duration="23000" />
       <workItem from="1471856275933" duration="514000" />
       <workItem from="1471857736842" duration="195000" />
-      <workItem from="1471933033503" duration="20688000" />
+      <workItem from="1471933033503" duration="21021000" />
+      <workItem from="1471976966642" duration="220000" />
+      <workItem from="1472019407653" duration="669000" />
+      <workItem from="1472020675677" duration="17546000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="560456000" />
+    <option name="totallyTimeSpent" value="579224000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -528,27 +592,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1378" height="744" extended-state="0" />
+    <frame x="-8" y="0" width="1370" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25725192" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16530278" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.06870229" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.78723407" sideWeight="0.49394855" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45335516" sideWeight="0.49394855" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.245827" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06904401" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23141123" sideWeight="0.5057283" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.78723407" sideWeight="0.49394855" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23141123" sideWeight="0.5057283" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45335516" sideWeight="0.49394855" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.4924357" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -558,23 +622,23 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16530278" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33060557" sideWeight="0.49394855" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.78723407" sideWeight="0.49394855" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15384616" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26626325" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45335516" sideWeight="0.49394855" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25725192" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4924357" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06870229" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.4924357" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23141123" sideWeight="0.5057283" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23141123" sideWeight="0.5057283" order="4" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -590,176 +654,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="69" />
+      <option name="time" value="75" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7561461d-a55a-47d3-92a2-12c3fa3f392f/console_41.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7561461d-a55a-47d3-92a2-12c3fa3f392f/console_42.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="232" selection-start-line="20" selection-start-column="232" selection-end-line="20" selection-end-column="232" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7561461d-a55a-47d3-92a2-12c3fa3f392f/console_43.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7561461d-a55a-47d3-92a2-12c3fa3f392f/console_40.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="211" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7561461d-a55a-47d3-92a2-12c3fa3f392f/console_44.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="24" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7561461d-a55a-47d3-92a2-12c3fa3f392f/console_45.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="202" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -767,7 +670,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="256" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -775,7 +677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="256" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -783,7 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -791,9 +691,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="0" expanded="true" signature="49:1310" placeholder="CREATE DEFIN... getProdChild" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -801,9 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="0" expanded="true" signature="49:1310" placeholder="CREATE DEFIN... getProdChild" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -819,9 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="247" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding>
-            <marker date="0" expanded="true" signature="49:1310" placeholder="CREATE DEFIN... getProdChild" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -829,9 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="247" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding>
-            <marker date="0" expanded="true" signature="49:1310" placeholder="CREATE DEFIN... getProdChild" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -839,9 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="247" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding>
-            <marker date="0" expanded="true" signature="49:1310" placeholder="CREATE DEFIN... getProdChild" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -849,9 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding>
-            <marker date="0" expanded="true" signature="49:1310" placeholder="CREATE DEFIN... getProdChild" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -859,14 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
           <caret line="268" column="22" selection-start-line="268" selection-start-column="22" selection-end-line="268" selection-end-column="22" />
-          <folding>
-            <element signature="e#426#502#0#PHP" expanded="false" />
-            <element signature="e#592#743#0#PHP" expanded="false" />
-            <element signature="e#906#2563#0#PHP" expanded="false" />
-            <element signature="e#5488#5616#0#PHP" expanded="false" />
-            <element signature="e#7668#8153#0#PHP" expanded="false" />
-            <element signature="e#8247#8436#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -874,9 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding>
-            <marker date="0" expanded="true" signature="49:1310" placeholder="CREATE DEFIN... getProdChild" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -884,9 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding>
-            <marker date="0" expanded="true" signature="49:1310" placeholder="CREATE DEFIN... getProdChild" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -894,9 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding>
-            <marker date="0" expanded="true" signature="49:1310" placeholder="CREATE DEFIN... getProdChild" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -904,24 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="211" selection-start-line="21" selection-start-column="211" selection-end-line="21" selection-end-column="211" />
-          <folding>
-            <marker date="0" expanded="true" signature="49:1310" placeholder="CREATE DEFIN... getProdChild" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ExportController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
-          <folding>
-            <element signature="e#325#401#0#PHP" expanded="false" />
-            <element signature="e#471#635#0#PHP" expanded="false" />
-            <element signature="e#4711#6052#0#PHP" expanded="false" />
-            <element signature="e#4879#5918#0#PHP" expanded="false" />
-            <element signature="e#6148#7438#0#PHP" expanded="false" />
-            <marker date="1471618450375" expanded="true" signature="2349:2350" placeholder="SELECT child... child_products" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -929,7 +776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -937,7 +783,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -945,7 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -953,7 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="223" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -961,7 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="223" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -969,7 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -977,7 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -985,7 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -993,7 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="179" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1001,7 +839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="179" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1009,43 +846,225 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="211" selection-start-line="21" selection-start-column="211" selection-end-line="21" selection-end-column="211" />
-          <folding>
-            <marker date="0" expanded="true" signature="49:1310" placeholder="CREATE DEFIN... getProdChild" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbroutine:/206562d4/7561461d-a55a-47d3-92a2-12c3fa3f392f/invetscan.getProdChild">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="32" column="126" selection-start-line="32" selection-start-column="126" selection-end-line="32" selection-end-column="126" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/suppliers/new.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="28" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/products/child-create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/products/forms/create-product-child.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/products/child-all.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/products/child-edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/locations/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_05_102930_remembered_suppliers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_24_134323_create_export_path.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ChildProduct.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="54" column="113" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="1" />
           <folding>
-            <marker date="0" expanded="true" signature="49:1310" placeholder="CREATE DEFIN... getProdChild" />
+            <element signature="e#23#57#0#PHP" expanded="true" />
+            <marker date="1472025055289" expanded="true" signature="702:716" placeholder="SELECT * FRO... ${$this}" />
+            <marker date="1472025055289" expanded="true" signature="702:795" placeholder="SELECT * FRO... ${$childProduct-&gt;getTable()}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ExportPaths.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+          <folding>
+            <element signature="e#23#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/export.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/servers/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="45" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/products/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="70" column="90" selection-start-line="70" selection-start-column="82" selection-end-line="70" selection-end-column="90" />
+        <state relative-caret-position="577">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+        <state relative-caret-position="161">
+          <caret line="155" column="7" selection-start-line="155" selection-start-column="7" selection-end-line="172" selection-end-column="9" />
           <folding>
-            <element signature="e#3813#4285#0#PHP" expanded="false" />
-            <element signature="e#4374#4626#0#PHP" expanded="false" />
-            <element signature="e#6068#6469#0#PHP" expanded="false" />
-            <element signature="e#7121#7602#0#PHP" expanded="false" />
-            <element signature="e#7723#8030#0#PHP" expanded="false" />
-            <marker date="1471962627404" expanded="true" signature="969:970" placeholder="SELECT * FRO... child_products" />
-            <marker date="1471962627404" expanded="true" signature="1868:1942" placeholder="/** * method... " />
-            <marker date="1471962627404" expanded="true" signature="5200:5306" placeholder="SELECT * FRO... ${$childProduct-&gt;getTable()}" />
+            <element signature="e#394#470#0#PHP" expanded="false" />
+            <element signature="e#533#1769#0#PHP" expanded="false" />
+            <element signature="e#1854#2154#0#PHP" expanded="false" />
+            <element signature="e#2214#2485#0#PHP" expanded="false" />
+            <element signature="e#2598#3060#0#PHP" expanded="false" />
+            <element signature="e#3174#3609#0#PHP" expanded="false" />
+            <element signature="e#4281#4533#0#PHP" expanded="false" />
+            <element signature="e#4650#5761#0#PHP" expanded="false" />
+            <element signature="e#5912#6313#0#PHP" expanded="false" />
+            <element signature="e#6482#6846#0#PHP" expanded="false" />
+            <element signature="e#6970#7451#0#PHP" expanded="false" />
+            <element signature="e#7572#7879#0#PHP" expanded="false" />
+            <marker date="1472022795464" expanded="true" signature="876:877" placeholder="SELECT * FRO... child_products" />
+            <marker date="1472022795464" expanded="true" signature="1775:1849" placeholder="/** * method... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/siteAjax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/export/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/export/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="101" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/suppliers/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="68" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/servers/new.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/export/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="79" selection-start-line="13" selection-start-column="79" selection-end-line="13" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ExportController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="324" column="37" selection-start-line="324" selection-start-column="37" selection-end-line="324" selection-end-column="37" />
+          <folding>
+            <element signature="e#40#61#0#PHP" expanded="true" />
+            <element signature="e#401#477#0#PHP" expanded="false" />
+            <element signature="e#547#711#0#PHP" expanded="false" />
+            <element signature="e#831#4063#0#PHP" expanded="false" />
+            <element signature="e#4161#5510#0#PHP" expanded="false" />
+            <element signature="e#5606#6904#0#PHP" expanded="false" />
+            <marker date="1472051807433" expanded="true" signature="1790:1791" placeholder="SELECT child... child_products" />
           </folding>
         </state>
       </provider>

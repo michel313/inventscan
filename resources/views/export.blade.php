@@ -7,8 +7,15 @@
 <div class="container">
     <div class="row">
       <div class="col-md-12 ">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Export</h1>
+            </div>
+            <div class="col-md-6 text-right">
+                <a class="btn-primary btn" href="{{url('/export-path')}}">Export Paths</a>
+            </div>
+        </div>
 
-        <h1>Export</h1>
         <hr>
       </div>
     </div>

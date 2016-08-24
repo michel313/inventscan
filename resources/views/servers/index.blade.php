@@ -31,19 +31,19 @@
                           <tr>
                             <td>{{ $server->location_id }}</td>
                             <td>{{ $server->type }}</td>
-                              <td class="text-right">
+                          <td class="text-right">
 
-                                  <a href="/servers/{{ $server->id}}/edit" class="btn edit-check"> <i class="fa fa-pencil"></i>
-                                  </a>
+                              <a href="/servers/{{ $server->id}}/edit" class="btn edit-check"> <i class="fa fa-pencil"></i>
+                              </a>
 
-                                  <a href="javascript:void(0)" class="btn remove-cancel  deleteAjax"
-                                     data-token="{{ csrf_token() }}"
-                                     data-type="deleteServer"
-                                     data-id="{!! $server->id !!}">
-                                      <i class="fa fa-remove"></i>
-                                  </a>
+                              <a href="javascript:void(0)" class="btn remove-cancel  deleteAjax"
+                                 data-token="{{ csrf_token() }}"
+                                 data-type="deleteServer"
+                                 data-id="{!! $server->id !!}">
+                                  <i class="fa fa-remove"></i>
+                              </a>
 
-                              </td>
+                          </td>
                           </tr>
                         @endforeach
                       </tbody>
