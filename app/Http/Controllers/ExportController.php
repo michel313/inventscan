@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use Illuminate\View\View;
 
-
 class ExportController extends Controller
 {
     /**
@@ -23,6 +22,23 @@ class ExportController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    /**
+     * method export
+     * @param ExportPaths $exportPaths
+     * @return View
+     **/
+    public function index(ExportPaths $exportPaths)
+    {
+
+        $paths = $exportPaths->all();
+
+        if(is_null($paths)){
+            return redirect('export');
+        }
+
+        return view('export',compact('paths'));
     }
 
     /**
@@ -38,12 +54,45 @@ class ExportController extends Controller
     }
 
     /**
+     * method returnPath
+     * @param $path
+     * @return string
+     */
+    private function returnPath($path){
+
+        if($path == '0'){
+
+            $path = public_path('assets/exports');
+
+        }else{
+
+            if (substr($path, 0, 1) == '/') {
+
+                $path = substr($path,1);
+
+            }
+
+            $path = base_path().'/'.$path;
+
+            if(!file_exists($path)) {
+                mkdir($path,0, true);
+            }
+        }
+
+        return $path;
+    }
+
+    /**
      * method exportFormula
      * @param $formula
      * @param $server
+     * @param $request
      * @return Redirect;
      */
-    public function exportProductFormula($formula = false,$server = false){
+    public function exportProductFormula(Request $request,$formula = false,$server = false){
+
+
+        $path = $request['path'];
 
         session()->forget('formula');
 
@@ -86,6 +135,7 @@ class ExportController extends Controller
             $childSku  = $childSku[0];
 
             $mainPrice = Product::Select('price')->where(['sku' => $childSku])->first();
+            
 
             if(!is_null($mainPrice)){
 
@@ -125,41 +175,49 @@ class ExportController extends Controller
 
             case false:
 
-                \Excel::create('product-'.Carbon::now()->toDateString(), function ($excel) use ($excelProductAll) {
+                $result =  \Excel::create('product-'.Carbon::now()->toDateString(), function ($excel) use ($excelProductAll) {
                     $excel->sheet('Sheet', function ($sheet) use ($excelProductAll) {
                         $sheet->loadView('export-csv.products-formula', ['products' => $excelProductAll]);
                     });
-                })->export('xls');
+                })->store('xls',public_path('assets/exports-xls'));
+
+
+                return response(['status' => 'success','data' => $result->filename.'.xls']);
 
                 break;
 
             case 'server':
 
+                $path = $this->returnPath($path);
+
                 \Excel::create('product-'.$this->currentDate(), function ($excel) use ($excelProductAll) {
                     $excel->sheet('Sheet', function ($sheet) use ($excelProductAll) {
                         $sheet->loadView('export-csv.products-formula', ['products' => $excelProductAll]);
                     });
-                })->store('csv', public_path('assets/exports'));
+                })->store('csv', $path);
+
+
+                return response(['status' => 'success']);
 
                 break;
 
             default:
 
-                flash()->error('Please Try Again');
+                return response(['status' => 'error']);
 
-                return redirect()->back();
         }
 
-
-        return redirect()->back();
     }
 
     /**
      * method exportLocations
      * @param $server
+     * @param $request
      * @return Redirect
      */
-    public function exportLocations($server=false){
+    public function exportLocations(Request $request,$server=false){
+
+        $path = $request['path'];
 
         $locations = Location::all();
 
@@ -170,44 +228,54 @@ class ExportController extends Controller
             switch ($server){
 
                 case false:
-                        \Excel::create('location-'.Carbon::now()->toDateString(), function($excel) use ($locations)  {
+
+                    $result = \Excel::create('location-'.Carbon::now()->toDateString(), function($excel) use ($locations)  {
                             $excel->sheet('Sheet', function($sheet) use ($locations) {
                                 $sheet->loadView('export-csv.locations',['locations' => $locations]);
                             });
-                        })->download('xls');
+                        })->store('xls', public_path('assets/exports-xls'));
+
+                        return response(['status' => 'success','data' => $result->filename.'.xls']);
+
                     break;
 
                 case 'server':
+
+                    $path = $this->returnPath($path);
 
                     \Excel::create('location'.$this->currentDate(), function($excel) use ($locations)  {
                         $excel->sheet('Sheet', function($sheet) use ($locations) {
                             $sheet->loadView('export-csv.locations',['locations' => $locations]);
                         });
-                    })->store('csv', public_path('assets/exports'));
+                    })->store('csv', $path);
+
+
+                    return response(['status' => 'success']);
 
                     break;
 
                 default:
 
-                    flash()->error('Please Try Again');
-
-                    return redirect()->back();
+                    return response(['status' => 'error']);
             }
 
         }else {
-            flash()->error('There are no Locations to export');
+            return response(['status' => 'error']);
         }
 
-        return redirect()->back();
+
 
     }
 
     /**
      * method exportServers
-     * @param $server
+     * @param  $request
+     * @param  $server
      * @return Redirect
      */
-    public function exportServers($server=false){
+    public function exportServers(Request $request,$server=false){
+
+        $path = $request['path'];
 
         $servers = Server::get();
 
@@ -215,33 +283,38 @@ class ExportController extends Controller
 
             $servers->toArray();
 
-
             switch ($server){
 
                 case false:
 
-                    \Excel::create('servers-'.Carbon::now()->toDateString(), function($excel) use ($servers)  {
+                    $result =  \Excel::create('servers-'.Carbon::now()->toDateString(), function($excel) use ($servers)  {
                         $excel->sheet('Sheet', function($sheet) use ($servers) {
                             $sheet->loadView('export-csv.servers',['servers' => $servers]);
                         });
-                    })->download('xls');
+                    })->store('xls',public_path('assets/exports-xls'));
+
+                    return response(['status' => 'success','data' => $result->filename.'.xls']);
 
                     break;
 
                 case 'server':
 
-                    \Excel::create('servers'.$this->currentDate(), function($excel) use ($servers)  {
+
+                    $path = $this->returnPath($path);
+
+                     \Excel::create('servers'.$this->currentDate(), function($excel) use ($servers)  {
                         $excel->sheet('Sheet', function($sheet) use ($servers) {
                             $sheet->loadView('export-csv.servers',['servers' => $servers]);
                         });
-                    })->store('csv', public_path('assets/exports'));
+                    })->store('csv', $path);
+
+                    return response(['status' => 'success']);
 
                     break;
+
                 default:
 
-                    flash()->error('Please Try Again');
-
-                    return redirect()->back();
+                    return response(['status' => 'error']);
             }
 
 
@@ -307,7 +380,6 @@ class ExportController extends Controller
         return view('export.edit',compact('path'));
     }
 
-
     /**
      * method updateExport
      * @param int $id
@@ -347,7 +419,6 @@ class ExportController extends Controller
             return response()->json(['status' => 'success']);
 
         } else {
-
 
             return redirect('export-path');
 

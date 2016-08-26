@@ -17,12 +17,4 @@ class PagesController extends Controller
         $this->middleware('auth');
     }
     
-    /**
-     * method export
-     * @return View
-    **/
-    public function export()
-    {
-      return view('export');
-    }
 }

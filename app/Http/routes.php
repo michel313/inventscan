@@ -45,13 +45,16 @@ Route::post('child-product/price-formula','ProductsController@priceFormula');
 
 /* Export Products Start */
 
-Route::get('export/product/{formula?}/{server?}','ExportController@exportProductFormula');
-Route::get('export/locations/{server?}','ExportController@exportLocations');
-Route::get('export/servers/{server?}','ExportController@exportServers');
+Route::post('export/product/{formula?}/{server?}','ExportController@exportProductFormula');
+Route::post('export/locations/{server?}','ExportController@exportLocations');
+Route::post('export/servers/{server?}','ExportController@exportServers');
+
+
 
 /* Export Products End */
 
 /* Export Path Start */
+Route::get('export', 'ExportController@index');
 
 Route::get('export-path','ExportController@exportIndex');
 Route::get('export-path/create','ExportController@exportCreate');
@@ -102,7 +105,7 @@ Route::delete('locations/{location}', 'LocationsController@destroy');
 
 Route::resource('servers', 'ServersController');
 
-Route::get('export', 'PagesController@export');
+
 Route::get('search', 'SearchController@search');
 
 

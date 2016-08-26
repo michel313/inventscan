@@ -60,14 +60,23 @@ body {
     vertical-align: middle;
 }
 
+.export-right a{
+    margin-top: 20px;
+}
+
 .create_import i{
     margin-right: 5px;
     color: #00FF00;
 }
 
 .export-page a i{
-    color: red;
+    color: #210dff;
     margin-left: 5px;
+}
+
+.export-page .btn:focus{
+    outline: none !important;
+    background-color: transparent;
 }
 
 @-webkit-keyframes spin2 {

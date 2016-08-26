@@ -67,12 +67,63 @@ $(function () {
 
         });
 
-    })
+    });
 
 
-    $('.export-page a').click(function () {
+    var nextEvent = true;
+    $('.export-page a').click(function (e) {
 
-         // $(this).prop('disabled',true).append('<i class=" animate-spinner  fa fa-spinner" aria-hidden="true"></i>');
+        e.preventDefault();
+
+        var path      = $('#path option:selected').val();
+        var token     = $('.token').val();
+        var myUrl     = $(this).attr('href');
+        var currThis  = $(this);
+
+        if(nextEvent == true){
+
+            nextEvent = false;
+
+            $(this).append('<i class="animate-spinner  fa fa-spinner" aria-hidden="true"></i>');
+
+            $('.export-page a').attr('disabled','disabled');
+
+            $.ajax({
+                url: myUrl,
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    _token:token,
+                    path:path
+                },
+                success: function(response) {
+
+                    nextEvent = true;
+
+                    if(response.status == 'success'){
+
+                        if(response.data != undefined){
+
+                            var ifr = $('<iframe />').attr('src', 'http://inventscan.dev/assets/exports-xls/'+response.data).hide().appendTo($('.download'))
+                            setTimeout(function () {ifr.remove();}, 5000);
+
+                        }
+
+                        currThis.find('i').remove();
+
+                        $('.export-page a').removeAttr('disabled');
+
+                    }else if(response.status == 'error'){
+
+                        alert('Error ,Please Try Again')
+
+                    }
+                }
+            });
+
+        }
+
+
 
     })
 
