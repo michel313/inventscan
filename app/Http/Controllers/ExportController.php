@@ -74,9 +74,12 @@ class ExportController extends Controller
 
             $path = base_path().'/'.$path;
 
+
+        
             if(!file_exists($path)) {
-                mkdir($path,0, true);
+                mkdir($path,0600, true);
             }
+
         }
 
         return $path;
