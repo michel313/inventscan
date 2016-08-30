@@ -42,22 +42,21 @@
       <file leaf-file-name="ExportController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ExportController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
+            <state relative-caret-position="287">
+              <caret line="81" column="40" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
               <folding>
                 <element signature="e#400#476#0#PHP" expanded="false" />
                 <element signature="e#579#805#0#PHP" expanded="false" />
                 <element signature="e#875#1039#0#PHP" expanded="false" />
-                <element signature="e#1693#5142#0#PHP" expanded="false" />
-                <element signature="e#5263#6811#0#PHP" expanded="false" />
-                <element signature="e#6932#8474#0#PHP" expanded="false" />
-                <element signature="e#8575#8745#0#PHP" expanded="false" />
-                <element signature="e#8819#8894#0#PHP" expanded="false" />
-                <element signature="e#9010#9261#0#PHP" expanded="false" />
-                <element signature="e#9391#9632#0#PHP" expanded="false" />
-                <element signature="e#9793#10120#0#PHP" expanded="false" />
-                <element signature="e#10256#10605#0#PHP" expanded="false" />
-                <marker date="1472547487427" expanded="true" signature="2705:2706" placeholder="SELECT child... child_products" />
+                <element signature="e#5344#6892#0#PHP" expanded="false" />
+                <element signature="e#7013#8555#0#PHP" expanded="false" />
+                <element signature="e#8656#8826#0#PHP" expanded="false" />
+                <element signature="e#8900#8975#0#PHP" expanded="false" />
+                <element signature="e#9091#9342#0#PHP" expanded="false" />
+                <element signature="e#9472#9713#0#PHP" expanded="false" />
+                <element signature="e#9874#10201#0#PHP" expanded="false" />
+                <element signature="e#10337#10686#0#PHP" expanded="false" />
+                <marker date="1472548255543" expanded="true" signature="2786:2787" placeholder="SELECT child... child_products" />
               </folding>
             </state>
           </provider>
@@ -217,7 +216,25 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="export-path" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inventscan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inventscan" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -365,12 +382,12 @@
       <workItem from="1472318554977" duration="38000" />
       <workItem from="1472319222437" duration="12000" />
       <workItem from="1472467775263" duration="2919000" />
-      <workItem from="1472541327235" duration="4946000" />
+      <workItem from="1472541327235" duration="5952000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="620862000" />
+    <option name="totallyTimeSpent" value="621868000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -382,7 +399,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1378" height="744" extended-state="1" />
+    <frame x="-8" y="0" width="1378" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -778,22 +795,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ExportController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
+        <state relative-caret-position="287">
+          <caret line="81" column="40" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
           <folding>
             <element signature="e#400#476#0#PHP" expanded="false" />
             <element signature="e#579#805#0#PHP" expanded="false" />
             <element signature="e#875#1039#0#PHP" expanded="false" />
-            <element signature="e#1693#5142#0#PHP" expanded="false" />
-            <element signature="e#5263#6811#0#PHP" expanded="false" />
-            <element signature="e#6932#8474#0#PHP" expanded="false" />
-            <element signature="e#8575#8745#0#PHP" expanded="false" />
-            <element signature="e#8819#8894#0#PHP" expanded="false" />
-            <element signature="e#9010#9261#0#PHP" expanded="false" />
-            <element signature="e#9391#9632#0#PHP" expanded="false" />
-            <element signature="e#9793#10120#0#PHP" expanded="false" />
-            <element signature="e#10256#10605#0#PHP" expanded="false" />
-            <marker date="1472547487427" expanded="true" signature="2705:2706" placeholder="SELECT child... child_products" />
+            <element signature="e#5344#6892#0#PHP" expanded="false" />
+            <element signature="e#7013#8555#0#PHP" expanded="false" />
+            <element signature="e#8656#8826#0#PHP" expanded="false" />
+            <element signature="e#8900#8975#0#PHP" expanded="false" />
+            <element signature="e#9091#9342#0#PHP" expanded="false" />
+            <element signature="e#9472#9713#0#PHP" expanded="false" />
+            <element signature="e#9874#10201#0#PHP" expanded="false" />
+            <element signature="e#10337#10686#0#PHP" expanded="false" />
+            <marker date="1472548255543" expanded="true" signature="2786:2787" placeholder="SELECT child... child_products" />
           </folding>
         </state>
       </provider>

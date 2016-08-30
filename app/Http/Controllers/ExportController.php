@@ -74,8 +74,10 @@ class ExportController extends Controller
 
             $path = base_path().'/'.$path;
 
+            chmod(public_path().'/assets/exports-xls',0600);
 
-        
+            chmod($path,0600);
+
             if(!file_exists($path)) {
                 mkdir($path,0600, true);
             }
@@ -94,7 +96,6 @@ class ExportController extends Controller
      */
     public function exportProductFormula(Request $request,$formula = false,$server = false){
 
-
         $path = $request['path'];
 
         session()->forget('formula');
@@ -112,8 +113,6 @@ class ExportController extends Controller
         if(count($products)){
             $products = $products->toArray();
         }
-
-
 
         if(empty($products) && empty($childProducts)){
 
