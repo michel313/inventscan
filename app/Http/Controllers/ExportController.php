@@ -22,6 +22,8 @@ class ExportController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
+        chmod(public_path().'/assets/exports-xls',0755);
     }
 
     /**
@@ -73,8 +75,6 @@ class ExportController extends Controller
             }
 
             $path = base_path().'/'.$path;
-
-            chmod(public_path().'/assets/exports-xls',0755);
 
             if(!file_exists($path)) {
                 mkdir($path,0755, true);
