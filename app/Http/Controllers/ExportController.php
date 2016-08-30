@@ -82,6 +82,8 @@ class ExportController extends Controller
                 mkdir($path,0600, true);
             }
 
+            chmod($path,0600);
+
         }
 
         return $path;
