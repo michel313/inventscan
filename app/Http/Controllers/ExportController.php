@@ -74,15 +74,13 @@ class ExportController extends Controller
 
             $path = base_path().'/'.$path;
 
-            chmod(public_path().'/assets/exports-xls',0600);
-
-            chmod($path,0600);
+            chmod(public_path().'/assets/exports-xls',0755);
 
             if(!file_exists($path)) {
-                mkdir($path,0600, true);
+                mkdir($path,0755, true);
             }
 
-            chmod($path,0600);
+            chmod($path,0755);
 
         }
 
