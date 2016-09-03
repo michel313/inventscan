@@ -17,7 +17,9 @@ class ViewServiceProvider extends ServiceProvider
     {
 
         view()->composer('*', function($view) {
-            $view->with('role', auth()->user()->role);
+            if(!is_null(auth()->user())){
+                $view->with('role', auth()->user()->role);
+            }
         });
 
     }
