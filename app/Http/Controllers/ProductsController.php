@@ -46,15 +46,12 @@ class ProductsController extends Controller
             }else{
                 $mainProductPrice = Product::where('id', $product->product_id)->get()->pluck('price')->first();
             }
-
-
+            
             if (strpos($product->childPrice, '/')) {
 
                 $quantity = explode('/', $product->childPrice);
                 $formulaPrice = (float)$mainProductPrice / (float)$quantity[1];
                 $products[$key]->childPriceForm = $formulaPrice;
-
-
                 
             } else if (strpos($product->childPrice, '*')) {
 

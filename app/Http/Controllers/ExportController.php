@@ -130,12 +130,11 @@ class ExportController extends Controller
             $childSku  = explode('.',$child['sku']);
             $childSku  = $childSku[0];
 
-            $mainPrice = Product::Select('price')->where(['sku' => $childSku])->first();
-            
+            $mainPrice = Product::Select('price')->where(['sku' => $childSku])->pluck('price')->first();
+
+
 
             if(!is_null($mainPrice)){
-
-                $mainPrice->toArray();
 
                 if($formula == 'formula'){
 
@@ -144,21 +143,24 @@ class ExportController extends Controller
                     session()->put('formula','true');
                 }
 
+
+
                 if(strpos($child['price'],'*')) {
 
                     $multiplePrice = explode('*', $child['price']);
 
-                    $childFormulaProducts[$key]['price'] = $child['price'] * $multiplePrice[1];
+                    $childFormulaProducts[$key]['price'] = $mainPrice* $multiplePrice[1];
+
 
                 }else if(strpos($child['price'],'/')) {
 
                     $multiplePrice = explode('/', $child['price']);
 
-                    $childFormulaProducts[$key]['price'] = $child['price'] / (int)$multiplePrice[1];
+                    $childFormulaProducts[$key]['price'] = $mainPrice/ (int)$multiplePrice[1];
 
                 }else{
 
-                    $childFormulaProducts[$key]['price'] = $mainPrice['price'];
+                    $childFormulaProducts[$key]['price'] = $mainPrice;
 
                 }
             }

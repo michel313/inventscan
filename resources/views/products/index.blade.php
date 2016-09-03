@@ -37,6 +37,8 @@
                       <tbody>
                         @foreach ($products as $product)
 
+
+
                           <tr>
                             <td>{{ $product->sku }}</td>
                             <td>{{ $product->title }}</td>

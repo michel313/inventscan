@@ -20,9 +20,7 @@ $(function () {
             case 'deleteServer':
                 sendUrl = 'servers';
             break;
-            case 'deletePath':
-                sendUrl = 'export-path';
-            break;
+
         }
 
         deleteAjax(sendUrl);
@@ -85,8 +83,8 @@ $(function () {
             nextEvent = false;
 
             $(this).append('<i class="animate-spinner  fa fa-spinner" aria-hidden="true"></i>');
-
-            $('.export-page a').attr('disabled','disabled');
+            //
+            // $('.export-page a').attr('disabled','disabled');
 
             $.ajax({
                 url: myUrl,
