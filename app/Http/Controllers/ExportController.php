@@ -28,19 +28,11 @@ class ExportController extends Controller
 
     /**
      * method export
-     * @param ExportPaths $exportPaths
      * @return View
      **/
-    public function index(ExportPaths $exportPaths)
+    public function index()
     {
-
-        $paths = $exportPaths->all();
-
-        if(is_null($paths)){
-            return redirect('export');
-        }
-
-        return view('export',compact('paths'));
+        return view('export');
     }
 
     /**
@@ -57,14 +49,18 @@ class ExportController extends Controller
 
     /**
      * method returnPath
-     * @param $path
+     * @param $pathname
      * @return string
      */
-    private function returnPath($path){
+    private function returnPath($pathname){
 
-        if($path == '0'){
+        $allPath = json_decode(file_get_contents(storage_path('paths.json')));
+        
+        $path = $allPath->paths->$pathname;
 
-            $path = public_path('assets/exports');
+        if($path == ''){
+
+            $path = base_path('/download');
 
         }else{
 
@@ -95,8 +91,6 @@ class ExportController extends Controller
      * @return Redirect;
      */
     public function exportProductFormula(Request $request,$formula = false,$server = false){
-
-        $path = $request['path'];
 
         session()->forget('formula');
 
@@ -190,7 +184,7 @@ class ExportController extends Controller
 
             case 'server':
 
-                $path = $this->returnPath($path);
+                $path = $this->returnPath('product');
 
                 \Excel::create('product-'.$this->currentDate(), function ($excel) use ($excelProductAll) {
                     $excel->sheet('Sheet', function ($sheet) use ($excelProductAll) {
@@ -243,7 +237,7 @@ class ExportController extends Controller
 
                 case 'server':
 
-                    $path = $this->returnPath($path);
+                    $path = $this->returnPath('location');
 
                     \Excel::create('location'.$this->currentDate(), function($excel) use ($locations)  {
                         $excel->sheet('Sheet', function($sheet) use ($locations) {
@@ -302,7 +296,7 @@ class ExportController extends Controller
                 case 'server':
 
 
-                    $path = $this->returnPath($path);
+                    $path = $this->returnPath('server');
 
                      \Excel::create('servers'.$this->currentDate(), function($excel) use ($servers)  {
                         $excel->sheet('Sheet', function($sheet) use ($servers) {
@@ -330,101 +324,40 @@ class ExportController extends Controller
     
     /**
      * method exportIndex
-     * @param $exportPaths
      * @return View;
      **/
-    public function exportIndex(ExportPaths $exportPaths){
+    public function exportPath(){
+
+        $path = json_decode(file_get_contents(storage_path('paths.json')));
         
-        $paths = $exportPaths->all();
-        
-        return view('export.index',compact('paths'));
-    }
-    
-    /**
-     * method exportCreate
-     * @return View;
-     */
-    public function exportCreate(){
-        return view('export.create');
+        return view('export.index',compact('path'));
     }
 
     /**
      * @param Request $request
-     * @param ExportPaths $exportPaths
      * @return Redirect
      */
-    public function exportStore(Request $request,ExportPaths $exportPaths){
+    public function exportPathUpdate(Request $request)
+    {
+        $config = json_decode(file_get_contents(storage_path('paths.json')));
+        
+        foreach ($request->all() as $key => $path){
 
-        $this->validate($request, [
-            'path' => 'required',
-        ]);
-
-        $exportPaths->create($request->all());
-
-        return redirect('/export-path');
-
-    }
-
-    /**
-     * method updateExport
-     * @param int $id
-     * @param ExportPaths $exportPaths
-     * @return View
-     */
-    public function exportEdit(ExportPaths $exportPaths,$id){
-
-        $path = $exportPaths->find($id);
-
-        if(is_null($path)){
-            return redirect('export-path');
+            if(isset($config->paths->$key)){
+                $config->paths->$key = $path;
+            }
         }
 
-        return view('export.edit',compact('path'));
+        file_put_contents(storage_path('paths.json'),json_encode($config));
+
+
+        flash()->success('Path has been updated successfully');
+
+        return back();
     }
 
-    /**
-     * method updateExport
-     * @param int $id
-     * @param ExportPaths $exportPaths
-     * @param Request $request
-     * @return View
-     */
-    public function updateEdit(ExportPaths $exportPaths,Request $request,$id){
 
-        $this->validate($request, [
-            'path' => 'required',
-        ]);
 
-        $path = [
-          'path' =>  $request['path']
-        ];
 
-        $exportPaths->where('id',$id)->update($path);
-
-        return redirect('export-path');
-    }
-
-    /**
-     * method destroy
-     * @param $request
-     * @param $id
-     * @param $exportPaths
-     * @return resource
-     */
-    public function exportDestroy(Request $request,ExportPaths $exportPaths,$id){
-
-        if ($request->ajax()) {
-
-            $pathID = $request['deleteID'];
-            $exportPaths->find($pathID)->delete();
-
-            return response()->json(['status' => 'success']);
-
-        } else {
-
-            return redirect('export-path');
-
-        }
-    }
 
 }

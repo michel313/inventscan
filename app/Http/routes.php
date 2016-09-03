@@ -54,14 +54,11 @@ Route::post('export/servers/{server?}','ExportController@exportServers');
 /* Export Products End */
 
 /* Export Path Start */
-Route::get('export', 'ExportController@index');
 
-Route::get('export-path','ExportController@exportIndex');
-Route::get('export-path/create','ExportController@exportCreate');
-Route::post('export-path','ExportController@exportStore');
-Route::get('export-path/{id}/edit','ExportController@exportEdit');
-Route::patch('export-path/{id}','ExportController@updateEdit');
-Route::delete('export-path/{id}','ExportController@exportDestroy');
+Route::get('export', 'ExportController@index');
+Route::get('export-paths','ExportController@exportPath');
+Route::post('export-paths/update','ExportController@exportPathUpdate');
+
 /* Export Path End */
 
 

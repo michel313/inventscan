@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExportPath extends Migration
+class UpdateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,8 @@ class CreateExportPath extends Migration
      */
     public function up()
     {
-        Schema::create('export_paths', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('path');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->enum('role',[1,2]);
         });
     }
 
@@ -26,6 +24,6 @@ class CreateExportPath extends Migration
      */
     public function down()
     {
-        Schema::drop('export_paths');
+      
     }
 }

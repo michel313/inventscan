@@ -58,6 +58,9 @@
                           <li role="separator" class="divider"></li>
                           <li><a href="{{ url('/locations') }}">Locations</a></li>
                           <li><a href="{{ url('/servers') }}">Servers</a></li>
+                          @if(!empty($role) && $role == '2')
+                            <li><a href="{{ url('/export-paths') }}">Export Path</a></li>
+                          @endif
                       </ul>
                     </li>
                 </ul>
